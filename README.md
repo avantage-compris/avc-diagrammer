@@ -1,6 +1,6 @@
 # avc-diagrammer
 
-Ad hoc tools to generate SVG diagrams in Java.
+Ad hoc tools in Java that generate SVG diagrams.
 
 ## Hello World!
 
@@ -22,4 +22,9 @@ The following program:
     
 will output the following SVG to stdout:
 
-!["Hello World!" in a box](src/site/resources/images/MyFirstDiagram.svg) 
+<!-- !["Hello World!" in a box](src/site/resources/images/MyFirstDiagram.svg) -->
+<div>
+<img src="src/site/resources/images/MyFirstDiagram.svg"
+    alt="&quot;Hello World!&quot; in a box"
+    onerror="this.onerror = null; this.src = 'https://raw.githubusercontent.com/avantage-compris/avc-diagrammer/master/' + this.src);">
+</div>
