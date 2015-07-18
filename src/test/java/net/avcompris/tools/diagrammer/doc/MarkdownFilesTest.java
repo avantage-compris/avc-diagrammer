@@ -69,6 +69,10 @@ public class MarkdownFilesTest {
 				continue;
 			}
 
+			if (!line.contains("(data:image/svg+xml")) {
+				continue;
+			}
+			
 			// e.g. "MyFirstDiagram"
 			final String namePrefix = substringBetween(line, "![", ".svg");
 
