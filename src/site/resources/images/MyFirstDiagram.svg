@@ -1,0 +1,12 @@
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='160' height='120'>
+<rect x='0.0' y='0.0' width='160.0' height='120.0' stroke='#000' fill='none'/>
+<path d='M10.0,52.0
+ h100.0 l20.0,10.0 h-100.0 l-20.0,-10.0 z'
+ fill='#58e' stroke='#000'/>
+<path d='M110.0,52.0
+ v-42.0 l20.0,10.0 v42.0 l-20.0,-10.0 z'
+ fill='#8bf' stroke='#000'/>
+<rect fill='#9cf' stroke='#000' x='10.0' y='10.0' width='100.0' height='42.0'/>
+<text x='60.0' y='24.0' font-size='14.0' fill='#000' text-anchor='middle'>Hello</text>
+<text font-weight='bold' x='60.0' y='44.0' font-size='14.0' fill='#000' text-anchor='middle'>World!</text>
+</svg>
