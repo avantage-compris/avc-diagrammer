@@ -31,7 +31,7 @@ abstract class MigrationScenario4_0 extends AvcDiagrammer {
 
 		inside_of_box(10, 10, 200, 270, "#69f");
 
-		b_converter = box(_ + 70, 150, 80, ____, "b_converter");
+		b_converter = box(_ + 70, 150, 80, "#3cf", "b_converter");
 
 		final Node app_data = database(_, 50, 80, ____, "app", "data");
 
