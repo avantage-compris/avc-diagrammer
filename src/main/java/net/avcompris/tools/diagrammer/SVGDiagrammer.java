@@ -7,10 +7,11 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.annotation.Nullable;
+import java.util.Stack;
 
 import org.apache.commons.io.FileUtils;
+
+import com.avcompris.util.XMLUtils;
 
 /**
  * Raw methods to generate SVG directly.
@@ -23,8 +24,6 @@ public abstract class SVGDiagrammer {
 	 * Override this method and add directives to output the SVG.
 	 */
 	protected abstract void body() throws Exception;
-
-	//private final PrintStream out = System.out;
 
 	/**
 	 * The method responsible to output the generated SVG.
@@ -53,9 +52,24 @@ public abstract class SVGDiagrammer {
 		flush();
 	}
 
+	protected Shape marker() {
+
+		return new Shape("marker");
+	}
+
 	protected Shape rect() {
 
 		return new Shape("rect");
+	}
+
+	protected Shape ellipse() {
+
+		return new Shape("ellipse");
+	}
+
+	protected Shape polygon() {
+
+		return new Shape("polygon");
 	}
 
 	protected Shape path() {
@@ -70,19 +84,35 @@ public abstract class SVGDiagrammer {
 			@Override
 			public void close() {
 
-				println(">" + label + "</text>");
+				println(">" + XMLUtils.xmlEncode(label) + "</text>");
+
+				shapes.pop();
 			}
 		};
 	}
 
-	@Nullable
-	private Shape currentShape = null;
+	private final Stack<Shape> shapes = new Stack<Shape>();
 
 	protected class Shape {
 
+		private final String elementName;
+
+		private boolean hasChildren = false;
+
 		public Shape(final String elementName) {
 
+			this.elementName = checkNotNull(elementName, "elementName");
+
+			if (!shapes.isEmpty()) {
+
+				println(">");
+
+				shapes.peek().hasChildren = true;
+			}
+
 			print("<" + elementName);
+
+			shapes.push(this);
 		}
 
 		public Shape property(final String name, final String value) {
@@ -90,6 +120,16 @@ public abstract class SVGDiagrammer {
 			print(" " + name + "='" + value + "'");
 
 			return this;
+		}
+
+		public Shape property(final String name, final int value) {
+
+			return property(name, Integer.toString(value));
+		}
+
+		public Shape property(final String name, final double value) {
+
+			return property(name, Double.toString(value));
 		}
 
 		public Shape fontSize(final double value) {
@@ -141,6 +181,13 @@ public abstract class SVGDiagrammer {
 			return this;
 		}
 
+		public Shape points(final String points) {
+
+			print(" points" + "='" + points + "'");
+
+			return this;
+		}
+
 		public Path moveTo(final double x, final double y) {
 
 			print(" d='");
@@ -160,6 +207,20 @@ public abstract class SVGDiagrammer {
 		public Shape y(final double y) {
 
 			print(" y='" + y + "'");
+
+			return this;
+		}
+
+		public Shape cx(final double cx) {
+
+			print(" cx='" + cx + "'");
+
+			return this;
+		}
+
+		public Shape cy(final double cy) {
+
+			print(" cy='" + cy + "'");
 
 			return this;
 		}
@@ -215,9 +276,16 @@ public abstract class SVGDiagrammer {
 
 		public void close() {
 
-			println("/>");
+			if (hasChildren) {
 
-			SVGDiagrammer.this.currentShape = null;
+				println("</" + elementName + ">");
+
+			} else {
+
+				println("/>");
+			}
+
+			shapes.pop();
 		}
 	}
 
@@ -244,6 +312,19 @@ public abstract class SVGDiagrammer {
 			return this;
 		}
 
+		public Path arc(final double xRadius,
+				final double yRadius, //
+				final double xAxisRotation, final boolean largeArcFlag,
+				final boolean sweepFlag, //
+				final double endX, final double endY) {
+
+			print(" a" + xRadius + "," + yRadius + "," + xAxisRotation + ","
+					+ (largeArcFlag ? 1 : 0) + "," + (sweepFlag ? 1 : 0) + ","
+					+ endX + "," + endY);
+
+			return this;
+		}
+
 		public Path move(final double x, final double y) {
 
 			print(" m" + x + "," + y);
@@ -258,21 +339,28 @@ public abstract class SVGDiagrammer {
 			return this;
 		}
 
-		private Shape close() {
+		public Path q(final double qx, final double qy, double x, final double y) {
+
+			print(" q" + qx + "," + qy + " " + x + "," + y);
+
+			return this;
+		}
+
+		public Shape close() {
 
 			println(" z'");
 
 			return parentShape;
 		}
 
-		private Shape leaveOpen() {
+		public Shape leaveOpen() {
 
 			println("'");
 
 			return parentShape;
 		}
 
-		private Path cut() {
+		public Path cut() {
 
 			println(" z");
 
