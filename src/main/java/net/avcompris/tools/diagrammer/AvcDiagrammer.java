@@ -1071,7 +1071,7 @@ public abstract class AvcDiagrammer {
 
 		} else if (from.top() > to.bottom()) {
 
-			y1 = from.top() - 1;
+			y1 = from.top() - 0.5;
 			y2 = to.bottom();
 
 			if (from.left() <= to.left() && from.right() >= to.right()) {
@@ -1177,7 +1177,7 @@ public abstract class AvcDiagrammer {
 		} else if (fromSide == NodeSide.TOP && toSide == NodeSide.RIGHT) {
 
 			x1 = from.middle_x_top();
-			y1 = from.top() - 1;
+			y1 = from.top() - 0.5;
 
 			x2 = to.right() + 2.5;
 			y2 = to.middle_y_right();
@@ -1223,7 +1223,7 @@ public abstract class AvcDiagrammer {
 		} else if (fromSide == NodeSide.TOP && toSide == NodeSide.LEFT) {
 
 			x1 = from.middle_x_top();
-			y1 = from.top() - 1;
+			y1 = from.top() - 0.5;
 
 			x2 = to.left() - 2.5;
 			y2 = to.middle_y_left();
