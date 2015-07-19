@@ -706,7 +706,7 @@ public abstract class AvcDiagrammer {
 		protected final double y;
 		protected final double width;
 		protected final double height;
-		public final String fillColor;
+		protected final String fillColor;
 
 		public final int x() {
 
@@ -845,7 +845,7 @@ public abstract class AvcDiagrammer {
 		@Override
 		public double right() {
 
-			return x + width + DEPTH_DX / 2;
+			return x + width;
 		}
 
 		@Override
