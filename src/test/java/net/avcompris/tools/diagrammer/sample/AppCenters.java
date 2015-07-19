@@ -22,29 +22,29 @@ public class AppCenters extends AvcDiagrammer {
 
 		inside_of_box(10, 10, 250, 170, "#69f");
 
-		final Node webapp1 = box(30, 50, 80, "#6cf", "webapp1");
+		final Node webapp1 = box(_ + 20, _ + 40, 80, "#3cf", "webapp1");
 
-		final Node app_data1 = database(155, 50, 70, "#6cf", "app", "data1");
+		final Node app_data1 = database(155, _ , 70, ____, "app", "data1");
 
-		final Node b_converter1 = box(140, 120, 80, "#6cf", "b_converter1");
+		final Node b_converter1 = box(_ - 15, _ + 70, 80, ____, "b_converter1");
 
 		outside_of_box("AppCenter1");
 
-		inside_of_box(10, 230, 250, 170, "#69f");
+		inside_of_box(_, 230, 250, 170, "#69f");
 
-		final Node webapp2 = box(30, 270, 80, "#6cf", "webapp2");
+		final Node webapp2 = box(_ + 20, _ + 40, 80, "#3cf", "webapp2");
 
-		final Node app_data2 = database(155, 270, 70, "#6cf", "app", "data2");
+		final Node app_data2 = database(155, _ , 70, ____, "app", "data2");
 
-		final Node b_converter2 = box(140, 340, 80, "#6cf", "b_converter2");
+		final Node b_converter2 = box(_ - 15, _ + 70, 80, ____, "b_converter2");
 
 		outside_of_box("AppCenter2");
 
-		inside_of_box(320, 10, 250, 400, "#f66");
+		inside_of_box(320, 10, 250, 400, "#f63");
 
-		final Node workers = box(400, 260, 80, "#f96", "workers");
+		final Node workers = box(_ + 80, 260, 80, "#f93", "workers");
 
-		final Node b_data = database(400, 50, 100, "#f96", "business", "data");
+		final Node b_data = database(_, 50, 100, ____, "business", "data");
 
 		outside_of_box("BizMaster");
 

@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
+import javax.annotation.Nullable;
+
 import net.avcompris.tools.diagrammer.SVGDiagrammer.Shape;
 
 import com.avcompris.lang.NotImplementedException;
@@ -21,6 +23,18 @@ import com.avcompris.lang.NotImplementedException;
  * @author David Andrianavalontsalama
  */
 public abstract class AvcDiagrammer {
+
+	/**
+	 * Use this for numeric values (x, y, width…)
+	 * relative to the preceding node you declared.
+	 */
+	protected static final int _ = 20000;
+
+	/**
+	 * Use this for String values (fillColor…) identical to the ones of the
+	 * preceding node you declared.
+	 */
+	protected static final String ____ = "SAME AS PREVIOUS";
 
 	/**
 	 * Override this method and add directives to output the SVG.
@@ -123,22 +137,28 @@ public abstract class AvcDiagrammer {
 	protected static final int BOX_OFFSET = 10;
 	protected static final int LINE_HEIGHT = 20;
 
-	protected final Node box(final double x, final double y,
-			final double width, final double height, final String fillColor,
-			final String... labels) {
+	protected final Node box(final int x, final int y, final int width,
+			final int height, final String fillColor, final String... labels) {
 
-		diagrammer().path().moveTo(x, y + height).h(width)
-				.l(DEPTH_DX, DEPTH_DY).h(-width).l(-DEPTH_DX, -DEPTH_DY)
-				.fill(darkenColor(fillColor)).stroke("#000").close();
+		final double x_ = handleUnderscore(previousNode().x, x);
+		final double y_ = handleUnderscore(previousNode().y, y);
+		final double w_ = handleUnderscore(previousNode().width, width);
+		final double h_ = handleUnderscore(previousNode().height, height);
+		final String fillColor_ = handleUnderscore(previousNode().fillColor,
+				fillColor);
 
-		diagrammer().path().moveTo(x + width, y + height).v(-height)
-				.l(DEPTH_DX, DEPTH_DY).v(height).l(-DEPTH_DX, -DEPTH_DY)
-				.fill(lightenColor(lightenColor(fillColor))).stroke("#000")
+		diagrammer().path().moveTo(x_, y_ + h_).h(w_).l(DEPTH_DX, DEPTH_DY)
+				.h(-w_).l(-DEPTH_DX, -DEPTH_DY).fill(darkenColor(fillColor_))
+				.stroke("#000").close();
+
+		diagrammer().path().moveTo(x_ + w_, y_ + h_).v(-h_)
+				.l(DEPTH_DX, DEPTH_DY).v(h_).l(-DEPTH_DX, -DEPTH_DY)
+				.fill(lightenColor(lightenColor(fillColor_))).stroke("#000")
 				.close();
 
 		diagrammer().rect()
-				.fill(lightenColor(lightenColor(lightenColor(fillColor))))
-				.stroke("#000").x(x).y(y).width(width).height(height).close();
+				.fill(lightenColor(lightenColor(lightenColor(fillColor_))))
+				.stroke("#000").x(x_).y(y_).width(w_).height(h_).close();
 
 		int i = 0;
 
@@ -158,36 +178,42 @@ public abstract class AvcDiagrammer {
 				text = diagrammer().text(label);
 			}
 
-			text.x(x + width / 2).y(y + 14 + i * LINE_HEIGHT).fontSize(14)
+			text.x(x_ + w_ / 2).y(y_ + 14 + i * LINE_HEIGHT).fontSize(14)
 					.fill("#000").textAnchor("middle").close();
 
 			++i;
 		}
 
-		return new NodeBox(x, y, width, height);
+		return new NodeBox(x_, y_, w_, h_, fillColor_);
 	}
 
-	protected final Node box(final double x, final double y,
-			final double width, final String fillColor, final String... labels) {
+	protected final Node box(final int x, final int y, final int width,
+			final String fillColor, final String... labels) {
 
 		return box(x, y, width, labels.length * LINE_HEIGHT + 2, fillColor,
 				labels);
 	}
 
-	protected final Node database(final double x, final double y,
-			final double width, final double height, final String fillColor,
-			final String... labels) {
+	protected final Node database(final int x, final int y, final int width,
+			final int height, final String fillColor, final String... labels) {
 
-		final double rx = width / 2;
+		final double x_ = handleUnderscore(previousNode().x, x);
+		final double y_ = handleUnderscore(previousNode().y, y);
+		final double w_ = handleUnderscore(previousNode().width, width);
+		final double h_ = handleUnderscore(previousNode().height, height);
+		final String fillColor_ = handleUnderscore(previousNode().fillColor,
+				fillColor);
+
+		final double rx = w_ / 2;
 		final double ry = 1.3 * DEPTH_DY / 2;
 
-		diagrammer().path().moveTo(x, y + height).v(-height)
-				.arc(rx, ry, 0, true, true, width, 0).v(height)
-				.fill(lightenColor(lightenColor(lightenColor(fillColor))))
+		diagrammer().path().moveTo(x_, y_ + h_).v(-h_)
+				.arc(rx, ry, 0, true, true, w_, 0).v(h_)
+				.fill(lightenColor(lightenColor(lightenColor(fillColor_))))
 				.stroke("#000").close();
 
-		diagrammer().ellipse().cx(x + width / 2).cy(y + height).rx(rx).ry(ry)
-				.fill(darkenColor(fillColor)).stroke("#000").close();
+		diagrammer().ellipse().cx(x_ + w_ / 2).cy(y_ + h_).rx(rx).ry(ry)
+				.fill(darkenColor(fillColor_)).stroke("#000").close();
 
 		int i = 0;
 
@@ -207,54 +233,60 @@ public abstract class AvcDiagrammer {
 				text = diagrammer().text(label);
 			}
 
-			text.x(x + width / 2 - 1).y(y + 8 + i * LINE_HEIGHT).fontSize(14)
+			text.x(x_ + w_ / 2 - 1).y(y_ + 8 + i * LINE_HEIGHT).fontSize(14)
 					.fill("#000").textAnchor("middle").close();
 
 			++i;
 		}
 
-		return new NodeDatabase(x, y, width, height);
+		return new NodeDatabase(x_, y_, w_, h_, fillColor_);
 	}
 
-	protected final Node database(final double x, final double y,
-			final double width, final String fillColor, final String... labels) {
+	protected final Node database(final int x, final int y, final int width,
+			final String fillColor, final String... labels) {
 
 		return database(x, y, width, labels.length * LINE_HEIGHT + 2,
 				fillColor, labels);
 	}
 
-	protected final Node queue(final double x, final double y,
-			final double width, final double height, final String fillColor,
-			final String... labels) {
+	protected final Node queue(final int x, final int y, final int width,
+			final int height, final String fillColor, final String... labels) {
+
+		final double x_ = handleUnderscore(previousNode().x, x);
+		final double y_ = handleUnderscore(previousNode().y, y);
+		final double w_ = handleUnderscore(previousNode().width, width);
+		final double h_ = handleUnderscore(previousNode().height, height);
+		final String fillColor_ = handleUnderscore(previousNode().fillColor,
+				fillColor);
 
 		final double rx = DEPTH_DX / 2 / 1.3;
 		final double ry = height / 2;
 
-		diagrammer().path().moveTo(x + width + rx, y).h(-width)
-				.arc(rx, ry, 0, false, false, 0, height).h(width)
-				.fill(lightenColor(lightenColor(lightenColor(fillColor))))
+		diagrammer().path().moveTo(x_ + w_ + rx, y_).h(-w_)
+				.arc(rx, ry, 0, false, false, 0, h_).h(w_)
+				.fill(lightenColor(lightenColor(lightenColor(fillColor_))))
 				.stroke("#000").close();
 
-		diagrammer().ellipse().cx(x + width + rx).cy(y + height / 2).rx(rx)
-				.ry(ry).fill(lightenColor(lightenColor(fillColor)))
-				.stroke("#000").close();
+		diagrammer().ellipse().cx(x_ + w_ + rx).cy(y_ + h_ / 2).rx(rx).ry(ry)
+				.fill(lightenColor(lightenColor(fillColor_))).stroke("#000")
+				.close();
 
 		final double wi = 5;
 		final double rxi = 5;
 		final double ryi = ry * rxi / rx;
 		final double hi = height * rxi / rx;
-		final double yi = y + height / 2 - 7;
+		final double yi = y_ + height / 2 - 7;
 
 		for (int i = 0; i < 4; ++i) {
 
-			final double xi = x + width / 2 + (i - 1.5) * 12;
+			final double xi = x_ + w_ / 2 + (i - 1.5) * 12;
 
 			diagrammer().path().moveTo(xi + wi + rxi, yi).h(-wi)
 					.arc(rxi, ryi, 0, false, false, 0, hi).h(wi)
-					.fill(lightenColor(fillColor)).stroke("#000").close();
+					.fill(lightenColor(fillColor_)).stroke("#000").close();
 
 			diagrammer().ellipse().cx(xi + wi + rxi).cy(yi + hi / 2).rx(rxi)
-					.ry(ryi).fill(darkenColor(fillColor)).stroke("#000")
+					.ry(ryi).fill(darkenColor(fillColor_)).stroke("#000")
 					.close();
 		}
 
@@ -276,17 +308,17 @@ public abstract class AvcDiagrammer {
 				text = diagrammer().text(label);
 			}
 
-			text.x(x + width / 2 + 10).y(y + 38 + i * LINE_HEIGHT).fontSize(14)
+			text.x(x_ + w_ / 2 + 10).y(y_ + 38 + i * LINE_HEIGHT).fontSize(14)
 					.fill("#000").textAnchor("middle").close();
 
 			++i;
 		}
 
-		return new NodeQueue(x, y, width, height);
+		return new NodeQueue(x_, y_, w_, h_, fillColor_);
 	}
 
-	protected final Node queue(final double x, final double y,
-			final double width, final String fillColor, final String... labels) {
+	protected final Node queue(final int x, final int y, final int width,
+			final String fillColor, final String... labels) {
 
 		return queue(x, y, width, LINE_HEIGHT + 2, fillColor, labels);
 	}
@@ -375,36 +407,49 @@ public abstract class AvcDiagrammer {
 	protected final void inside_of_box(final int x, final int y,
 			final int width, final int height, final String fillColor) {
 
+		final double x_ = handleUnderscore(previousNode().x, x);
+		final double y_ = handleUnderscore(previousNode().y, y);
+		final double w_ = handleUnderscore(previousNode().width, width);
+		final double h_ = handleUnderscore(previousNode().height, height);
+		final String fillColor_ = handleUnderscore(previousNode().fillColor,
+				fillColor);
+
 		final double stroke_opacity = 0.3;
 
 		diagrammer().path().fillOpacity(0.2).stroke_opacity(stroke_opacity)
-				.moveTo(x + BOX_OFFSET, y + BOX_OFFSET)
-				.h(width - BOX_OFFSET - BOX_OFFSET).l(DEPTH_DX, DEPTH_DY)
-				.h(-width + BOX_OFFSET + BOX_OFFSET).l(-DEPTH_DX, -DEPTH_DY)
-				.fill(darkenColor(fillColor)).stroke("#000").close();
+				.moveTo(x_ + BOX_OFFSET, y_ + BOX_OFFSET)
+				.h(w_ - BOX_OFFSET - BOX_OFFSET).l(DEPTH_DX, DEPTH_DY)
+				.h(-w_ + BOX_OFFSET + BOX_OFFSET).l(-DEPTH_DX, -DEPTH_DY)
+				.fill(darkenColor(fillColor_)).stroke("#000").close();
 
 		diagrammer().path().fillOpacity(0.2).stroke_opacity(stroke_opacity)
-				.moveTo(x + BOX_OFFSET, y + BOX_OFFSET).l(DEPTH_DX, DEPTH_DY)
-				.v(height - BOX_OFFSET - BOX_OFFSET).l(-DEPTH_DX, -DEPTH_DY)
-				.v(-height + BOX_OFFSET + BOX_OFFSET)
-				.fill(lightenColor(lightenColor(fillColor))).stroke("#000")
+				.moveTo(x_ + BOX_OFFSET, y_ + BOX_OFFSET).l(DEPTH_DX, DEPTH_DY)
+				.v(h_ - BOX_OFFSET - BOX_OFFSET).l(-DEPTH_DX, -DEPTH_DY)
+				.v(-h_ + BOX_OFFSET + BOX_OFFSET)
+				.fill(lightenColor(lightenColor(fillColor_))).stroke("#000")
 				.close();
 
 		diagrammer().path().fillOpacity(0.2).stroke_opacity(stroke_opacity)
-				.moveTo(x + BOX_OFFSET + DEPTH_DX, y + BOX_OFFSET + DEPTH_DY)
-				.h(width - BOX_OFFSET - BOX_OFFSET)
-				.v(height - BOX_OFFSET - BOX_OFFSET)
-				.h(-width + BOX_OFFSET + BOX_OFFSET)
-				.v(-height + BOX_OFFSET + BOX_OFFSET)
-				.fill(lightenColor(lightenColor(lightenColor(fillColor))))
+				.moveTo(x_ + BOX_OFFSET + DEPTH_DX, y_ + BOX_OFFSET + DEPTH_DY)
+				.h(w_ - BOX_OFFSET - BOX_OFFSET)
+				.v(h_ - BOX_OFFSET - BOX_OFFSET)
+				.h(-w_ + BOX_OFFSET + BOX_OFFSET)
+				.v(-h_ + BOX_OFFSET + BOX_OFFSET)
+				.fill(lightenColor(lightenColor(lightenColor(fillColor_))))
 				.stroke("#000").close();
 
-		boxStack.push(new Box(x, y, width, height, fillColor));
+		final Box box = new Box(x_, y_, w_, h_, fillColor_);
+
+		boxStack.push(box);
+
+		currentNode = new NodeBox(box);
 	}
 
 	protected final void outside_of_box(final String... labels) {
 
 		final Box box = boxStack.pop();
+
+		currentNode = new NodeBox(box);
 
 		int labelWidth = 0;
 
@@ -473,7 +518,166 @@ public abstract class AvcDiagrammer {
 		return 14 + 7 * text.length();
 	}
 
-	protected static abstract class Node {
+	@Nullable
+	private Node currentNode = null;
+
+	private Node previousNode() {
+
+		if (currentNode != null) {
+
+			return currentNode;
+		}
+
+		return NO_PREVIOUS_NODE;
+	}
+
+	private final Node NO_PREVIOUS_NODE = new Node(_, _, _, _, ____) {
+
+		@Override
+		public double top() {
+
+			throw new IllegalStateException();
+		}
+
+		@Override
+		public double right() {
+
+			throw new IllegalStateException();
+		}
+
+		@Override
+		public double bottom() {
+
+			throw new IllegalStateException();
+		}
+
+		@Override
+		public double left() {
+
+			throw new IllegalStateException();
+		}
+
+		@Override
+		public double middle_x_top() {
+
+			throw new IllegalStateException();
+		}
+
+		@Override
+		public double middle_x_bottom() {
+
+			throw new IllegalStateException();
+		}
+
+		@Override
+		public double middle_y_left() {
+
+			throw new IllegalStateException();
+		}
+
+		@Override
+		public double middle_y_right() {
+
+			throw new IllegalStateException();
+		}
+	};
+
+	private static double handleUnderscore(final double previousValue,
+			final double value) {
+
+		if (value < _ / 2) {
+			return value;
+		}
+
+		if (previousValue > _ / 2) {
+			throw new IllegalArgumentException("Cannot compute relative value "
+					+ value + ": previousValue " + previousValue
+					+ " is invalid.");
+		}
+
+		return previousValue + (value - _);
+	}
+
+	private static String handleUnderscore(final String previousValue,
+			final String value) {
+
+		if (!____.equals(value)) {
+			return value;
+		}
+
+		if (____.equalsIgnoreCase(previousValue)) {
+			throw new IllegalArgumentException("Cannot compute relative value "
+					+ value + ": previousValue " + previousValue
+					+ " is invalid.");
+		}
+
+		return previousValue;
+	}
+
+	protected abstract class Node {
+
+		public Node(
+				final double x,
+				final double y,
+				final double width,
+				final double height,
+				final String fillColor) {
+
+			if ((int) x == _ && (int) y == _ //
+					&& (int) width == _ && (int) height == _ //
+					&& ____.equals(fillColor)) { // NO_PREVIOUS_NODE
+				// OK
+			} else if (x > _ / 2) {
+				throw new IllegalArgumentException("x: " + x);
+			} else if (y > _ / 2) {
+				throw new IllegalArgumentException("y: " + y);
+			} else if (width > _ / 2) {
+				throw new IllegalArgumentException("width: " + width);
+			} else if (height > _ / 2) {
+				throw new IllegalArgumentException("height: " + height);
+			} else if (____.equals(fillColor)) {
+				throw new IllegalArgumentException("fillColor: " + fillColor);
+			}
+
+			this.x = x;
+			this.y = y;
+			this.width = width;
+			this.height = height;
+			this.fillColor = fillColor;
+
+			AvcDiagrammer.this.currentNode = this;
+		}
+
+		protected final double x;
+		protected final double y;
+		protected final double width;
+		protected final double height;
+		public final String fillColor;
+
+		public final int x() {
+
+			return (int) x;
+		}
+
+		public final int y() {
+
+			return (int) y;
+		}
+
+		public final int width() {
+
+			return (int) width;
+		}
+
+		public final int height() {
+
+			return (int) height;
+		}
+
+		public final String fillColor() {
+
+			return fillColor;
+		}
 
 		public abstract double top();
 
@@ -492,24 +696,22 @@ public abstract class AvcDiagrammer {
 		public abstract double middle_y_right();
 	}
 
-	private static class NodeBox extends Node {
+	private class NodeBox extends Node {
 
 		public NodeBox(
 				final double x,
 				final double y,
 				final double width,
-				final double height) {
+				final double height,
+				final String fillColor) {
 
-			this.x = x;
-			this.y = y;
-			this.width = width;
-			this.height = height;
+			super(x, y, width, height, fillColor);
 		}
 
-		private final double x;
-		private final double y;
-		private final double width;
-		private final double height;
+		public NodeBox(final Box box) {
+
+			this(box.x, box.y, box.width, box.height, box.fillColor);
+		}
 
 		@Override
 		public double top() {
@@ -560,24 +762,17 @@ public abstract class AvcDiagrammer {
 		}
 	}
 
-	private static class NodeDatabase extends Node {
+	private class NodeDatabase extends Node {
 
 		public NodeDatabase(
 				final double x,
 				final double y,
 				final double width,
-				final double height) {
+				final double height,
+				final String fillColor) {
 
-			this.x = x;
-			this.y = y;
-			this.width = width;
-			this.height = height;
+			super(x, y, width, height, fillColor);
 		}
-
-		private final double x;
-		private final double y;
-		private final double width;
-		private final double height;
 
 		@Override
 		public double top() {
@@ -628,24 +823,17 @@ public abstract class AvcDiagrammer {
 		}
 	}
 
-	private static class NodeQueue extends Node {
+	private class NodeQueue extends Node {
 
 		public NodeQueue(
 				final double x,
 				final double y,
 				final double width,
-				final double height) {
+				final double height,
+				final String fillColor) {
 
-			this.x = x;
-			this.y = y;
-			this.width = width;
-			this.height = height;
+			super(x, y, width, height, fillColor);
 		}
-
-		private final double x;
-		private final double y;
-		private final double width;
-		private final double height;
 
 		@Override
 		public double top() {
@@ -729,6 +917,12 @@ public abstract class AvcDiagrammer {
 
 			} else {
 
+				System.err.println("from.right: " + from.right() //
+						+ " < to.left: " + to.left());
+				System.err.println("from.top: " + from.top() //
+						+ ", to.top: " + to.top());
+				System.err.println("from.bottom: " + from.bottom() //
+						+ ", to.bottom: " + to.bottom());
 				throw new NotImplementedException();
 			}
 
@@ -792,7 +986,15 @@ public abstract class AvcDiagrammer {
 			x2 = to.left() - 2.5;
 			y2 = to.middle_y_left();
 
+			// if ((x2 - x1) > 3 * (y2 - y1)) {
+
+			// qx = x2 - 3 * (y2 - y1);
+
+			// } else {
+
 			qx = x1;
+
+			// }
 
 			if ((y2 - y1) > 3 * (x2 - x1)) {
 
@@ -811,7 +1013,15 @@ public abstract class AvcDiagrammer {
 			x2 = to.right() + 2.5;
 			y2 = to.middle_y_right();
 
+			// if ((x1 - x2) > 3 * (y1 - y2)) {
+
+			// qx = x2 + 3 * (y1 - y2);
+
+			// } else {
+
 			qx = x1;
+
+			// }
 
 			if ((y1 - y2) > 3 * (x1 - x2)) {
 
