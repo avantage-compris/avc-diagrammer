@@ -24,7 +24,7 @@ public class AppCenters extends AvcDiagrammer {
 
 		final Node webapp1 = box(_ + 20, _ + 40, 80, "#3cf", "webapp1");
 
-		final Node app_data1 = database(155, _ , 70, ____, "app", "data1");
+		final Node app_data1 = database(155, _, 70, ____, "app", "data1");
 
 		final Node b_converter1 = box(_ - 15, _ + 70, 80, ____, "b_converter1");
 
@@ -34,7 +34,7 @@ public class AppCenters extends AvcDiagrammer {
 
 		final Node webapp2 = box(_ + 20, _ + 40, 80, "#3cf", "webapp2");
 
-		final Node app_data2 = database(155, _ , 70, ____, "app", "data2");
+		final Node app_data2 = database(155, _, 70, ____, "app", "data2");
 
 		final Node b_converter2 = box(_ - 15, _ + 70, 80, ____, "b_converter2");
 
@@ -44,7 +44,7 @@ public class AppCenters extends AvcDiagrammer {
 
 		final Node workers = box(_ + 80, 260, 80, "#f93", "workers");
 
-		final Node b_data = database(_, 50, 100, ____, "business", "data");
+		final Node b_data = database(_ + 10, 50, 80, ____, "business", "data");
 
 		outside_of_box("BizMaster");
 
