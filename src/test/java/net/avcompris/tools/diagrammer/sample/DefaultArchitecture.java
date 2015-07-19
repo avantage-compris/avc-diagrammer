@@ -37,7 +37,9 @@ public class DefaultArchitecture extends AvcDiagrammer {
 		inside_of_box(320, 10, 250, 400, "#f66");
 
 		final Node worker = box(400, 310, 80, "#f96", "worker <1>");
+		
 		box(400, 310 + LINE_HEIGHT, 80, "#f96", "worker <2>");
+		
 		box(400, 310 + 2 * LINE_HEIGHT, 80, "#f96", "worker <3>");
 
 		final Node b_data = database(400, 50, 100, "#f96", "business", "data");
