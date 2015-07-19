@@ -79,6 +79,18 @@ public abstract class AvcDiagrammer {
 		return d;
 	}
 
+	private enum ArrowColor {
+
+		BLACK("#000"), YELLOW("#ff0"), RED("#f00"), GRAY("#ccc");
+
+		private ArrowColor(final String color) {
+
+			this.color = color;
+		}
+
+		public final String color;
+	}
+
 	/**
 	 * The method responsible to output the generated SVG.
 	 * If you want to add a border, call {@link border(int)} before calling
@@ -101,16 +113,22 @@ public abstract class AvcDiagrammer {
 							.fill("none").close();
 				}
 
-				final Shape marker = marker().property("id", "arrow")
-						.property("markerWidth", 6).property("markerHeight", 6)
-						.property("viewBox", "-3 -3 6 6").property("refX", 2)
-						.property("refY", 0)
-						.property("markerUnits", "strokeWidth")
-						.property("orient", "auto");
+				for (final ArrowColor color : ArrowColor.values()) {
 
-				polygon().points("-1,0 -3,3 3,0 -3,-3").fill("#000").close();
+					final Shape marker = marker()
+							.property("id", "arrow_" + color.name())
+							.property("markerWidth", 6)
+							.property("markerHeight", 6)
+							.property("viewBox", "-3 -3 6 6")
+							.property("refX", 2).property("refY", 0)
+							.property("markerUnits", "strokeWidth")
+							.property("orient", "auto");
 
-				marker.close();
+					polygon().points("-1,0 -3,3 3,0 -3,-3").fill(color.color)
+							.close();
+
+					marker.close();
+				}
 
 				AvcDiagrammer.this.body();
 			}
@@ -136,6 +154,17 @@ public abstract class AvcDiagrammer {
 	private static final int DEPTH_DY = 10;
 	protected static final int BOX_OFFSET = 10;
 	protected static final int LINE_HEIGHT = 20;
+
+	protected final Node hidden(final int x, final int y, final int width,
+			final int height) {
+
+		final double x_ = handleUnderscore(previousNode().x, x);
+		final double y_ = handleUnderscore(previousNode().y, y);
+		final double w_ = handleUnderscore(previousNode().width, width);
+		final double h_ = handleUnderscore(previousNode().height, height);
+
+		return new NodeBox(x_, y_, w_, h_, "transparent");
+	}
 
 	protected final Node box(final int x, final int y, final int width,
 			final int height, final String fillColor, final String... labels) {
@@ -185,6 +214,17 @@ public abstract class AvcDiagrammer {
 		}
 
 		return new NodeBox(x_, y_, w_, h_, fillColor_);
+	}
+
+	protected final void obsolete(final Node node) {
+
+		final int S = 6;
+		final int L = 14;
+
+		diagrammer().path().moveTo(node.x+node.width/2-L-S, node.y).l(S, -S).l(L, L).l(L, -L)
+				.l(S, S).l(-L, L).l(L, L).l(-S, S).l(-L, -L).l(-L, L).l(-S, -S)
+				.l(L, -L).l(-L, -L).stroke("none").fill("#f00").opacity(0.6)
+				.close();
 	}
 
 	protected final Node box(final int x, final int y, final int width,
@@ -323,7 +363,7 @@ public abstract class AvcDiagrammer {
 		return queue(x, y, width, LINE_HEIGHT + 2, fillColor, labels);
 	}
 
-	private static String darkenColor(final String color) {
+	public static String darkenColor(final String color) {
 
 		if (!color.startsWith("#")) {
 			return color;
@@ -351,7 +391,7 @@ public abstract class AvcDiagrammer {
 		return sb.toString();
 	}
 
-	private static String lightenColor(final String color) {
+	public static String lightenColor(final String color) {
 
 		if (!color.startsWith("#")) {
 			return color;
@@ -558,6 +598,12 @@ public abstract class AvcDiagrammer {
 		}
 
 		@Override
+		public int total_height() {
+
+			throw new IllegalStateException();
+		}
+
+		@Override
 		public double middle_x_top() {
 
 			throw new IllegalStateException();
@@ -687,6 +733,8 @@ public abstract class AvcDiagrammer {
 
 		public abstract double left();
 
+		public abstract int total_height();
+
 		public abstract double middle_x_top();
 
 		public abstract double middle_x_bottom();
@@ -735,6 +783,12 @@ public abstract class AvcDiagrammer {
 		public double left() {
 
 			return x;
+		}
+
+		@Override
+		public int total_height() {
+
+			return (int) height + DEPTH_DY;
 		}
 
 		@Override
@@ -799,6 +853,12 @@ public abstract class AvcDiagrammer {
 		}
 
 		@Override
+		public int total_height() {
+
+			return (int) height + DEPTH_DY / 2;
+		}
+
+		@Override
 		public double middle_x_top() {
 
 			return x + width / 2;
@@ -860,6 +920,12 @@ public abstract class AvcDiagrammer {
 		}
 
 		@Override
+		public int total_height() {
+
+			return (int) height;
+		}
+
+		@Override
 		public double middle_x_top() {
 
 			return x + width / 2;
@@ -897,6 +963,45 @@ public abstract class AvcDiagrammer {
 	protected final void arrow(final Node from, final Node to,
 			final String style) {
 
+		arrow(ArrowColor.BLACK, from, to, style);
+	}
+
+	protected final void arrow_yellow(final Node from, final Node to) {
+
+		arrow_yellow(from, to, "solid");
+	}
+
+	protected final void arrow_yellow(final Node from, final Node to,
+			final String style) {
+
+		arrow(ArrowColor.YELLOW, from, to, style);
+	}
+
+	protected final void arrow_red(final Node from, final Node to) {
+
+		arrow_red(from, to, "solid");
+	}
+
+	protected final void arrow_red(final Node from, final Node to,
+			final String style) {
+
+		arrow(ArrowColor.RED, from, to, style);
+	}
+
+	protected final void arrow_gray(final Node from, final Node to) {
+
+		arrow_gray(from, to, "solid");
+	}
+
+	protected final void arrow_gray(final Node from, final Node to,
+			final String style) {
+
+		arrow(ArrowColor.GRAY, from, to, style);
+	}
+
+	private final void arrow(final ArrowColor color, final Node from,
+			final Node to, final String style) {
+
 		final double x1;
 		final double y1;
 		final double x2;
@@ -905,7 +1010,7 @@ public abstract class AvcDiagrammer {
 		if (from.right() < to.left()) {
 
 			x1 = from.right();
-			x2 = to.left() - 2.5;
+			x2 = to.left() - 3;
 
 			if (from.top() >= to.top() && from.bottom() <= to.bottom()) {
 
@@ -957,19 +1062,38 @@ public abstract class AvcDiagrammer {
 			throw new NotImplementedException();
 		}
 
-		final Shape shape = diagrammer().path().stroke("#000").opacity(0.8)
-				.strokeWidth(3).fill("none");
+		final Shape shape = diagrammer().path().stroke(color.color)
+				.opacity(0.8).strokeWidth(3).fill("none");
 
 		if ("dashed".equals(style)) {
 			shape.property("stroke-dasharray", "6,4");
 		}
 
 		shape.moveTo(x1, y1).l(x2 - x1, y2 - y1).leaveOpen()
-				.property("marker-end", "url(#arrow)").close();
+				.property("marker-end", "url(#arrow_" + color.name() + ")")
+				.close();
 	}
 
 	protected final void arrow(final Node from, final NodeSide fromSide,
 			final Node to, final NodeSide toSide) {
+
+		arrow(ArrowColor.BLACK, from, fromSide, to, toSide);
+	}
+
+	protected final void arrow_yellow(final Node from, final NodeSide fromSide,
+			final Node to, final NodeSide toSide) {
+
+		arrow(ArrowColor.YELLOW, from, fromSide, to, toSide);
+	}
+
+	protected final void arrow_gray(final Node from, final NodeSide fromSide,
+			final Node to, final NodeSide toSide) {
+
+		arrow(ArrowColor.GRAY, from, fromSide, to, toSide);
+	}
+
+	private final void arrow(final ArrowColor color, final Node from,
+			final NodeSide fromSide, final Node to, final NodeSide toSide) {
 
 		final double x1;
 		final double y1;
@@ -1008,7 +1132,7 @@ public abstract class AvcDiagrammer {
 		} else if (fromSide == NodeSide.TOP && toSide == NodeSide.RIGHT) {
 
 			x1 = from.middle_x_top();
-			y1 = from.top();
+			y1 = from.top() - 1;
 
 			x2 = to.right() + 2.5;
 			y2 = to.middle_y_right();
@@ -1051,14 +1175,35 @@ public abstract class AvcDiagrammer {
 				qy = y2;
 			}
 
+		} else if (fromSide == NodeSide.TOP && toSide == NodeSide.LEFT) {
+
+			x1 = from.middle_x_top();
+			y1 = from.top() - 1;
+
+			x2 = to.left() - 2.5;
+			y2 = to.middle_y_left();
+
+			// if ((x1 - x2) > 3 * (y1 - y2)) {
+
+			// qx = x2 + 3 * (y1 - y2);
+
+			// } else {
+
+			qx = x1;
+
+			// }
+
+			qy = y2;
+
 		} else {
 
 			throw new NotImplementedException();
 		}
 
-		diagrammer().path().stroke("#000").opacity(0.8).strokeWidth(3)
+		diagrammer().path().stroke(color.color).opacity(0.8).strokeWidth(3)
 				.fill("none").moveTo(x1, y1)
 				.q(qx - x1, qy - y1, x2 - x1, y2 - y1).leaveOpen()
-				.property("marker-end", "url(#arrow)").close();
+				.property("marker-end", "url(#arrow_" + color.name() + ")")
+				.close();
 	}
 }

@@ -45,3 +45,28 @@ Java code: [MyFirstDiagram.java](src/test/java/net/avcompris/tools/diagrammer/sa
     <img alt="DefaultArchitecture: Default Architecture" src="src/site/resources/rasterized/DefaultArchitecture.png" width="100px">
   
     Java code: [DefaultArchitecture.java](src/test/java/net/avcompris/tools/diagrammer/sample/DefaultArchitecture.java)
+
+  * [MigrationScenario1_1.svg: Migration Scenario #1.1 (SVG)](src/site/resources/images/MigrationScenario1_1.svg)
+
+    <img alt="Migration Scenario #1.1" src="src/site/resources/rasterized/MigrationScenario1_1.png" width="100px">
+  
+    Java code: [MigrationScenario1_1.java](src/test/java/net/avcompris/tools/diagrammer/sample/MigrationScenario1_1.java)
+    
+  * [MigrationScenario1_2.svg: Migration Scenario #1.2 (SVG)](src/site/resources/images/MigrationScenario1_2.svg)
+
+    <img alt="Migration Scenario #1.2" src="src/site/resources/rasterized/MigrationScenario1_2.png" width="100px">
+  
+    Java code: [MigrationScenario1_2.java](src/test/java/net/avcompris/tools/diagrammer/sample/MigrationScenario1_2.java)
+
+  * [MigrationScenario1_3.svg: Migration Scenario #1.3 (SVG)](src/site/resources/images/MigrationScenario1_3.svg)
+
+    <img alt="Migration Scenario #1.3" src="src/site/resources/rasterized/MigrationScenario1_3.png" width="100px">
+  
+    Java code: [MigrationScenario1_3.java](src/test/java/net/avcompris/tools/diagrammer/sample/MigrationScenario1_3.java)
+
+  * [MigrationScenario1_4.svg: Migration Scenario #1.4 (SVG)](src/site/resources/images/MigrationScenario1_1.svg)
+
+    <img alt="Migration Scenario #1.4" src="src/site/resources/rasterized/MigrationScenario1_4.png" width="100px">
+  
+    Java code: [MigrationScenario1_4.java](src/test/java/net/avcompris/tools/diagrammer/sample/MigrationScenario1_4.java)
+            

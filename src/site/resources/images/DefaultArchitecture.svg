@@ -1,6 +1,15 @@
 <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='600' height='450'>
-<marker id='arrow' markerWidth='6' markerHeight='6' viewBox='-3 -3 6 6' refX='2' refY='0' markerUnits='strokeWidth' orient='auto'>
+<marker id='arrow_BLACK' markerWidth='6' markerHeight='6' viewBox='-3 -3 6 6' refX='2' refY='0' markerUnits='strokeWidth' orient='auto'>
 <polygon points='-1,0 -3,3 3,0 -3,-3' fill='#000'/>
+</marker>
+<marker id='arrow_YELLOW' markerWidth='6' markerHeight='6' viewBox='-3 -3 6 6' refX='2' refY='0' markerUnits='strokeWidth' orient='auto'>
+<polygon points='-1,0 -3,3 3,0 -3,-3' fill='#ff0'/>
+</marker>
+<marker id='arrow_RED' markerWidth='6' markerHeight='6' viewBox='-3 -3 6 6' refX='2' refY='0' markerUnits='strokeWidth' orient='auto'>
+<polygon points='-1,0 -3,3 3,0 -3,-3' fill='#f00'/>
+</marker>
+<marker id='arrow_GRAY' markerWidth='6' markerHeight='6' viewBox='-3 -3 6 6' refX='2' refY='0' markerUnits='strokeWidth' orient='auto'>
+<polygon points='-1,0 -3,3 3,0 -3,-3' fill='#ccc'/>
 </marker>
 <path fill-opacity='0.2' stroke-opacity='0.3' d='M20.0,20.0
  h230.0 l20.0,10.0 h-230.0 l-20.0,-10.0 z'
@@ -142,30 +151,30 @@
  fill='#f96' stroke='#000'/>
 <text x='358.0' y='418.0' font-size='14.0' fill='#000' text-anchor='middle'>BizMaster</text>
 <path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M120.0,66.0
- l32.5,0.0'
- marker-end='url(#arrow)'/>
+ l32.0,0.0'
+ marker-end='url(#arrow_BLACK)'/>
 <path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M80.0,77.0
  q0.0,134.0 72.5,134.0'
- marker-end='url(#arrow)'/>
+ marker-end='url(#arrow_BLACK)'/>
 <path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M190.0,120.0
  l0.0,-26.0'
- marker-end='url(#arrow)'/>
+ marker-end='url(#arrow_BLACK)'/>
 <path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M190.0,260.0
  l0.0,-26.0'
- marker-end='url(#arrow)'/>
+ marker-end='url(#arrow_BLACK)'/>
 <path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M80.0,77.0
  q0.0,172.5 57.5,244.0'
- marker-end='url(#arrow)'/>
+ marker-end='url(#arrow_BLACK)'/>
 <path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' stroke-dasharray='6,4' d='M227.69230769230768,321.0
- l169.80769230769232,0.0'
- marker-end='url(#arrow)'/>
-<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M440.0,310.0
- q0.0,-174.0 -207.5,-174.0'
- marker-end='url(#arrow)'/>
-<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M440.0,310.0
- q0.0,-34.0 -207.5,-34.0'
- marker-end='url(#arrow)'/>
+ l169.30769230769232,0.0'
+ marker-end='url(#arrow_BLACK)'/>
+<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M440.0,309.0
+ q0.0,-173.0 -207.5,-173.0'
+ marker-end='url(#arrow_BLACK)'/>
+<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M440.0,309.0
+ q0.0,-33.0 -207.5,-33.0'
+ marker-end='url(#arrow_BLACK)'/>
 <path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M450.0,310.0
  l0.0,-216.0'
- marker-end='url(#arrow)'/>
+ marker-end='url(#arrow_BLACK)'/>
 </svg>
