@@ -15,6 +15,11 @@
 	<dependencies>
 		<dependency>
 			<groupId>net.avcompris.commons</groupId>
+			<artifactId>avc-commons-lang</artifactId>
+			<version>0.4.5-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>net.avcompris.commons</groupId>
 			<artifactId>avc-commons-testutil</artifactId>
 			<version>0.4.5-SNAPSHOT</version>
 			<scope>test</scope>
