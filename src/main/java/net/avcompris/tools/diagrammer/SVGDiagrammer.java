@@ -384,7 +384,8 @@ public abstract class SVGDiagrammer {
 
 	private final List<File> outputFiles = new ArrayList<File>();
 
-	protected final SVGDiagrammer addOutputFile(final File outputFile) throws IOException {
+	protected final SVGDiagrammer addOutputFile(final File outputFile)
+			throws IOException {
 
 		checkNotNull(outputFile, "outputFile");
 
