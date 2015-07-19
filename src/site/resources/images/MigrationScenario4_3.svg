@@ -96,4 +96,10 @@
 <path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M460.0,219.0
  l0.0,-125.0'
  marker-end='url(#arrow_BLACK)'/>
+<marker id='arrow_GRAY' markerWidth='6' markerHeight='6' viewBox='-3 -3 6 6' refX='2' refY='0' markerUnits='strokeWidth' orient='auto'>
+<polygon points='-1,0 -3,3 3,0 -3,-3' fill='#ccc'/>
+</marker>
+<path stroke='#ccc' opacity='0.8' stroke-width='3.0' fill='none' d='M370.0,149.0
+ l0.0,-55.0'
+ marker-end='url(#arrow_GRAY)'/>
 </svg>
