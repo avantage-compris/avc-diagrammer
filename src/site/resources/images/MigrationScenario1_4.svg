@@ -93,11 +93,11 @@
 <marker id='arrow_BLACK' markerWidth='6' markerHeight='6' viewBox='-3 -3 6 6' refX='2' refY='0' markerUnits='strokeWidth' orient='auto'>
 <polygon points='-1,0 -3,3 3,0 -3,-3' fill='#000'/>
 </marker>
-<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M450.0,120.0
- l0.0,-26.0'
+<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M450.0,119.0
+ l0.0,-25.0'
  marker-end='url(#arrow_BLACK)'/>
-<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M450.0,260.0
- l0.0,-26.0'
+<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M440.0,259.0
+ l0.0,-25.0'
  marker-end='url(#arrow_BLACK)'/>
 <path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M190.0,305.0
  q0.0,-234.0 222.5,-234.0'

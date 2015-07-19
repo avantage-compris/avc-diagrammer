@@ -1049,10 +1049,10 @@ public abstract class AvcDiagrammer {
 
 		} else if (from.top() > to.bottom()) {
 
-			y1 = from.top();
+			y1 = from.top() - 1;
 			y2 = to.bottom();
 
-			if (from.left() <= to.left() && from.right() >= from.right()) {
+			if (from.left() <= to.left() && from.right() >= to.right()) {
 
 				x1 = to.middle_x_bottom();
 
@@ -1060,8 +1060,19 @@ public abstract class AvcDiagrammer {
 
 				x1 = from.middle_x_top();
 
+			} else if (from.middle_x_top() >= to.left()
+					&& from.middle_x_top() <= to.right()) {
+
+				x1 = from.middle_x_top();
+
 			} else {
 
+				System.err.println("from.top: " + from.top() //
+						+ ", to.bottom: " + to.bottom());
+				System.err.println("from.left: " + from.left() //
+						+ " < to.left: " + to.left());
+				System.err.println("from.right: " + from.right() //
+						+ " < to.right: " + to.right());
 				throw new NotImplementedException();
 			}
 
