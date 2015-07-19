@@ -1045,7 +1045,29 @@ public abstract class AvcDiagrammer {
 
 		} else if (from.left() > to.right()) {
 
-			throw new NotImplementedException();
+			x1 = from.left();
+			x2 = to.right() +2.5;
+
+			if (from.top() >= to.top() && from.bottom() <= to.bottom()) {
+
+				y1 = from.middle_y_left();
+
+			} else if (from.top() <= to.top() && from.bottom() >= to.bottom()) {
+
+				y1 = to.middle_y_right();
+
+			} else {
+
+				System.err.println("from.left: " + from.left() //
+						+ " < to.right: " + to.right());
+				System.err.println("from.top: " + from.top() //
+						+ ", to.top: " + to.top());
+				System.err.println("from.bottom: " + from.bottom() //
+						+ ", to.bottom: " + to.bottom());
+				throw new NotImplementedException();
+			}
+
+			y2 = y1;
 
 		} else if (from.top() > to.bottom()) {
 
@@ -1068,11 +1090,11 @@ public abstract class AvcDiagrammer {
 			} else {
 
 				System.err.println("from.top: " + from.top() //
-						+ ", to.bottom: " + to.bottom());
+						+ " > to.bottom: " + to.bottom());
 				System.err.println("from.left: " + from.left() //
-						+ " < to.left: " + to.left());
+						+ ", to.left: " + to.left());
 				System.err.println("from.right: " + from.right() //
-						+ " < to.right: " + to.right());
+						+ ", to.right: " + to.right());
 				throw new NotImplementedException();
 			}
 
