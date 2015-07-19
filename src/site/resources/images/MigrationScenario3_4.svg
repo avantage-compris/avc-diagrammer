@@ -96,9 +96,12 @@
 <path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M160.0,66.0
  l47.0,0.0'
  marker-end='url(#arrow_BLACK)'/>
-<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M255.0,119.0
+<marker id='arrow_GRAY' markerWidth='6' markerHeight='6' viewBox='-3 -3 6 6' refX='2' refY='0' markerUnits='strokeWidth' orient='auto'>
+<polygon points='-1,0 -3,3 3,0 -3,-3' fill='#ccc'/>
+</marker>
+<path stroke='#ccc' opacity='0.8' stroke-width='3.0' fill='none' d='M255.0,119.0
  l0.0,-25.0'
- marker-end='url(#arrow_BLACK)'/>
+ marker-end='url(#arrow_GRAY)'/>
 <path d='M70.0,212.0
  h80.0 l20.0,10.0 h-80.0 l-20.0,-10.0 z'
  fill='#eb2' stroke='#000'/>

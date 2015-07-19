@@ -10,16 +10,16 @@
  fill='#9cf' stroke='#000'/>
 <path d='M80.0,172.0
  h80.0 l20.0,10.0 h-80.0 l-20.0,-10.0 z'
- fill='#58e' stroke='#000'/>
+ fill='#2be' stroke='#000'/>
 <path d='M160.0,172.0
  v-22.0 l20.0,10.0 v22.0 l-20.0,-10.0 z'
- fill='#8bf' stroke='#000'/>
-<rect fill='#9cf' stroke='#000' x='80.0' y='150.0' width='80.0' height='22.0'/>
+ fill='#5ef' stroke='#000'/>
+<rect fill='#6ff' stroke='#000' x='80.0' y='150.0' width='80.0' height='22.0'/>
 <text x='120.0' y='164.0' font-size='14.0' fill='#000' text-anchor='middle'>b_converter</text>
 <path d='M80.0,92.0
  v-42.0 a40.0,6.5,0.0,1,1,80.0,0.0 v42.0 z'
- fill='#9cf' stroke='#000'/>
-<ellipse cx='120.0' cy='92.0' rx='40.0' ry='6.5' fill='#58e' stroke='#000'/>
+ fill='#6ff' stroke='#000'/>
+<ellipse cx='120.0' cy='92.0' rx='40.0' ry='6.5' fill='#2be' stroke='#000'/>
 <text x='119.0' y='58.0' font-size='14.0' fill='#000' text-anchor='middle'>app</text>
 <text x='119.0' y='78.0' font-size='14.0' fill='#000' text-anchor='middle'>data</text>
 <marker id='arrow_BLACK' markerWidth='6' markerHeight='6' viewBox='-3 -3 6 6' refX='2' refY='0' markerUnits='strokeWidth' orient='auto'>
