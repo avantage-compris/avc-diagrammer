@@ -5,7 +5,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.Stack;
 
 import javax.annotation.Nullable;
@@ -113,23 +115,6 @@ public abstract class AvcDiagrammer {
 							.fill("none").close();
 				}
 
-				for (final ArrowColor color : ArrowColor.values()) {
-
-					final Shape marker = marker()
-							.property("id", "arrow_" + color.name())
-							.property("markerWidth", 6)
-							.property("markerHeight", 6)
-							.property("viewBox", "-3 -3 6 6")
-							.property("refX", 2).property("refY", 0)
-							.property("markerUnits", "strokeWidth")
-							.property("orient", "auto");
-
-					polygon().points("-1,0 -3,3 3,0 -3,-3").fill(color.color)
-							.close();
-
-					marker.close();
-				}
-
 				AvcDiagrammer.this.body();
 			}
 		};
@@ -148,6 +133,29 @@ public abstract class AvcDiagrammer {
 		diagrammer().run(width, height);
 
 		diagrammer = null;
+	}
+
+	private final Set<ArrowColor> arrowDefsAlreadyEmbedded = new HashSet<ArrowColor>();
+
+	private void ensureArrowDef(final ArrowColor color) {
+
+		if (arrowDefsAlreadyEmbedded.contains(color)) {
+			return;
+		}
+
+		arrowDefsAlreadyEmbedded.add(color);
+
+		final Shape marker = diagrammer().marker()
+				.property("id", "arrow_" + color.name())
+				.property("markerWidth", 6).property("markerHeight", 6)
+				.property("viewBox", "-3 -3 6 6").property("refX", 2)
+				.property("refY", 0).property("markerUnits", "strokeWidth")
+				.property("orient", "auto");
+
+		diagrammer().polygon().points("-1,0 -3,3 3,0 -3,-3").fill(color.color)
+				.close();
+
+		marker.close();
 	}
 
 	private static final int DEPTH_DX = 20;
@@ -221,10 +229,10 @@ public abstract class AvcDiagrammer {
 		final int S = 6;
 		final int L = 14;
 
-		diagrammer().path().moveTo(node.x+node.width/2-L-S, node.y).l(S, -S).l(L, L).l(L, -L)
-				.l(S, S).l(-L, L).l(L, L).l(-S, S).l(-L, -L).l(-L, L).l(-S, -S)
-				.l(L, -L).l(-L, -L).stroke("none").fill("#f00").opacity(0.6)
-				.close();
+		diagrammer().path().moveTo(node.x + node.width / 2 - L - S, node.y)
+				.l(S, -S).l(L, L).l(L, -L).l(S, S).l(-L, L).l(L, L).l(-S, S)
+				.l(-L, -L).l(-L, L).l(-S, -S).l(L, -L).l(-L, -L).stroke("none")
+				.fill("#f00").opacity(0.6).close();
 	}
 
 	protected final Node box(final int x, final int y, final int width,
@@ -1002,6 +1010,8 @@ public abstract class AvcDiagrammer {
 	private final void arrow(final ArrowColor color, final Node from,
 			final Node to, final String style) {
 
+		ensureArrowDef(color);
+
 		final double x1;
 		final double y1;
 		final double x2;
@@ -1094,6 +1104,8 @@ public abstract class AvcDiagrammer {
 
 	private final void arrow(final ArrowColor color, final Node from,
 			final NodeSide fromSide, final Node to, final NodeSide toSide) {
+
+		ensureArrowDef(color);
 
 		final double x1;
 		final double y1;
