@@ -64,7 +64,7 @@ Java code: [MyFirstDiagram.java](src/test/java/net/avcompris/tools/diagrammer/sa
   
     Java code: [MigrationScenario1_3.java](src/test/java/net/avcompris/tools/diagrammer/sample/MigrationScenario1_3.java)
 
-  * [MigrationScenario1_4.svg: Migration Scenario #1.4 (SVG)](src/site/resources/images/MigrationScenario1_1.svg)
+  * [MigrationScenario1_4.svg: Migration Scenario #1.4 (SVG)](src/site/resources/images/MigrationScenario1_4.svg)
 
     <img alt="Migration Scenario #1.4" src="src/site/resources/rasterized/MigrationScenario1_4.png" width="100px">
   
