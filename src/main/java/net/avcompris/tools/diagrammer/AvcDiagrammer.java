@@ -822,6 +822,25 @@ public abstract class AvcDiagrammer {
 				qy = y2;
 			}
 
+		} else if (fromSide == NodeSide.BOTTOM && toSide == NodeSide.RIGHT) {
+
+			x1 = from.middle_x_bottom();
+			y1 = from.bottom();
+
+			x2 = to.right() + 2.5;
+			y2 = to.middle_y_right();
+
+			qx = x1;
+
+			if ((y2 - y1) > 3 * (x1 - x2)) {
+
+				qy = y1 + 3 * (x1 - x2);
+
+			} else {
+
+				qy = y2;
+			}
+
 		} else {
 
 			throw new NotImplementedException();
