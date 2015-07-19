@@ -5,7 +5,6 @@ import static org.apache.commons.lang3.StringUtils.substringBetween;
 import static org.junit.Assert.assertEquals;
 
 import java.io.File;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -72,7 +71,7 @@ public class MarkdownFilesTest {
 			if (!line.contains("(data:image/svg+xml")) {
 				continue;
 			}
-			
+
 			// e.g. "MyFirstDiagram"
 			final String namePrefix = substringBetween(line, "![", ".svg");
 
