@@ -1,4 +1,7 @@
 <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='160' height='80'>
+<marker id='arrow' markerWidth='6' markerHeight='6' viewBox='-3 -3 6 6' refX='2' refY='0' markerUnits='strokeWidth' orient='auto'>
+<polygon points='-1,0 -3,3 3,0 -3,-3' fill='#000'/>
+</marker>
 <path d='M10.0,52.0
  h100.0 l20.0,10.0 h-100.0 l-20.0,-10.0 z'
  fill='#58e' stroke='#000'/>

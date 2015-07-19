@@ -22,6 +22,22 @@ The following program:
     
 will output to stdout the following image (in SVG):
 
+[MyFirstDiagram.svg: "Hello World!" in a box (SVG)](src/site/resources/images/MyFirstDiagram.svg)
+
 ![MyFirstDiagram.png: "Hello World!" in a box](src/site/resources/rasterized/MyFirstDiagram.png)
 
-[MyFirstDiagram.svg: "Hello World!" in a box](src/site/resources/images/MyFirstDiagram.svg)
+Java code: [MyFirstDiagram.java](src/test/java/net/avcompris/tools/diagrammer/sample/MyFirstDiagram.java)
+
+## Samples
+
+  * [AppCenters.svg: App Centers (SVG)](src/site/resources/images/AppCenters.svg)
+  
+    ![AppCenters.svg: App Centers](src/site/resources/rasterized/AppCenters.png =100x) 
+  
+    Java code: [AppCenters.java](src/test/java/net/avcompris/tools/diagrammer/sample/AppCenters.java)
+
+  * [DefaultArchitecture.svg: Default Architecture (SVG)](src/site/resources/images/DefaultArchitecture.svg)
+    
+    ![DefaultArchitecture.svg: App Centers](src/site/resources/rasterized/DefaultArchitecture.png =100x) 
+  
+    Java code: [DefaultArchitecture.java](src/test/java/net/avcompris/tools/diagrammer/sample/DefaultArchitecture.java)
