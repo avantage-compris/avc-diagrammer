@@ -70,25 +70,25 @@ Java code: [MyFirstDiagram.java](src/test/java/net/avcompris/tools/diagrammer/sa
   
     Java code: [MigrationScenario1_4.java](src/test/java/net/avcompris/tools/diagrammer/sample/MigrationScenario1_4.java)
 
-  * [MigrationScenario2_1.svg: Migration Scenario #1.4 (SVG)](src/site/resources/images/MigrationScenario2_1.svg)
+  * [MigrationScenario2_1.svg: Migration Scenario #2.1 (SVG)](src/site/resources/images/MigrationScenario2_1.svg)
 
     <img alt="Migration Scenario #2.1" src="src/site/resources/rasterized/MigrationScenario2_1.png" width="100px">
   
     Java code: [MigrationScenario2_1.java](src/test/java/net/avcompris/tools/diagrammer/sample/MigrationScenario2_1.java)
 
-  * [MigrationScenario2_2.svg: Migration Scenario #1.4 (SVG)](src/site/resources/images/MigrationScenario2_2.svg)
+  * [MigrationScenario2_2.svg: Migration Scenario #2.2 (SVG)](src/site/resources/images/MigrationScenario2_2.svg)
 
     <img alt="Migration Scenario #2.2" src="src/site/resources/rasterized/MigrationScenario2_2.png" width="100px">
   
     Java code: [MigrationScenario2_2.java](src/test/java/net/avcompris/tools/diagrammer/sample/MigrationScenario2_2.java)
 
-  * [MigrationScenario2_3.svg: Migration Scenario #1.4 (SVG)](src/site/resources/images/MigrationScenario2_3.svg)
+  * [MigrationScenario2_3.svg: Migration Scenario #2.3 (SVG)](src/site/resources/images/MigrationScenario2_3.svg)
 
     <img alt="Migration Scenario #2.3" src="src/site/resources/rasterized/MigrationScenario2_3.png" width="100px">
   
     Java code: [MigrationScenario2_3.java](src/test/java/net/avcompris/tools/diagrammer/sample/MigrationScenario2_3.java)
 
-  * [MigrationScenario2_4.svg: Migration Scenario #1.4 (SVG)](src/site/resources/images/MigrationScenario2_4.svg)
+  * [MigrationScenario2_4.svg: Migration Scenario #2.4 (SVG)](src/site/resources/images/MigrationScenario2_4.svg)
 
     <img alt="Migration Scenario #2.4" src="src/site/resources/rasterized/MigrationScenario2_4.png" width="100px">
   
