@@ -32,12 +32,16 @@ Java code: [MyFirstDiagram.java](src/test/java/net/avcompris/tools/diagrammer/sa
 
   * [AppCenters.svg: App Centers (SVG)](src/site/resources/images/AppCenters.svg)
   
-    ![AppCenters.svg: App Centers](src/site/resources/rasterized/AppCenters.png =100x) 
+    <!-- ![AppCenters.svg: App Centers](src/site/resources/rasterized/AppCenters.png =100x) -->
+
+    <img alt="AppCenters.svg: App Centers" src="src/site/resources/rasterized/AppCenters.png" width="100px">
   
     Java code: [AppCenters.java](src/test/java/net/avcompris/tools/diagrammer/sample/AppCenters.java)
 
   * [DefaultArchitecture.svg: Default Architecture (SVG)](src/site/resources/images/DefaultArchitecture.svg)
     
-    ![DefaultArchitecture.svg: App Centers](src/site/resources/rasterized/DefaultArchitecture.png =100x) 
+    <!-- ![DefaultArchitecture.svg: App Centers](src/site/resources/rasterized/DefaultArchitecture.png =100x) -->
+
+    <img alt="DefaultArchitecture: Default Architecture" src="src/site/resources/rasterized/DefaultArchitecture.png" width="100px">
   
     Java code: [DefaultArchitecture.java](src/test/java/net/avcompris/tools/diagrammer/sample/DefaultArchitecture.java)
