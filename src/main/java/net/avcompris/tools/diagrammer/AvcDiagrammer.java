@@ -56,6 +56,13 @@ public abstract class AvcDiagrammer {
 		return this;
 	}
 
+	private boolean printToSystemOut = true;
+
+	public final void printToSystemOut(final boolean printToSystemOut) {
+
+		this.printToSystemOut = printToSystemOut;
+	}
+
 	private final List<File> outputFiles = new ArrayList<File>();
 
 	public final AvcDiagrammer addOutputFile(final File outputFile) throws IOException {
@@ -119,6 +126,8 @@ public abstract class AvcDiagrammer {
 			}
 		};
 
+		diagrammer.printToSystemOut(printToSystemOut);
+		
 		for (final File outputFile : outputFiles) {
 
 			try {

@@ -382,6 +382,13 @@ public abstract class SVGDiagrammer {
 		}
 	}
 
+	private boolean printToSystemOut = true;
+
+	public final void printToSystemOut(final boolean printToSystemOut) {
+
+		this.printToSystemOut = printToSystemOut;
+	}
+
 	private final List<File> outputFiles = new ArrayList<File>();
 
 	protected final SVGDiagrammer addOutputFile(final File outputFile) throws IOException {
@@ -397,7 +404,10 @@ public abstract class SVGDiagrammer {
 
 	private void println(final String s) {
 
-		System.out.println(s);
+		if (printToSystemOut) {
+
+			System.out.println(s);
+		}
 
 		for (final File outputFile : outputFiles) {
 
@@ -415,7 +425,10 @@ public abstract class SVGDiagrammer {
 
 	private void print(final String s) {
 
-		System.out.print(s);
+		if (printToSystemOut) {
+
+			System.out.print(s);
+		}
 
 		for (final File outputFile : outputFiles) {
 
