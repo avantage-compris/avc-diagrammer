@@ -2,6 +2,7 @@ package net.avcompris.tools.diagrammer;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import static org.apache.commons.lang3.StringUtils.substringBeforeLast;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
@@ -9,6 +10,9 @@ import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 
 import net.avcompris.tools.diagrammer.sample.MyFirstDiagram;
 
@@ -40,8 +44,11 @@ public class AllSamplesTest {
 				continue;
 			}
 
+			final String sampleDiagrammerSimpleClassName = substringBeforeLast(
+					filename, ".java");
+
 			final String sampleDiagrammerClassName = packageName + "."
-					+ substringBeforeLast(filename, ".java");
+					+ sampleDiagrammerSimpleClassName;
 
 			@SuppressWarnings("unchecked")
 			final Class<? extends AvcDiagrammer> sampleDiagrammerClass = //
@@ -52,48 +59,68 @@ public class AllSamplesTest {
 				continue;
 			}
 
-			parameters.add(new Object[]{
-					filename, sampleDiagrammerClass
-			});
+			parameters.add(new Object[] { sampleDiagrammerSimpleClassName,
+					sampleDiagrammerClass });
 		}
 
 		return parameters;
 	}
 
-	public AllSamplesTest(
-			final String classSimpleName,
+	public AllSamplesTest(final String classSimpleName,
 			final Class<? extends AvcDiagrammer> sampleDiagrammerClass) {
 
 		this.sampleDiagrammerClass = checkNotNull(sampleDiagrammerClass,
 				"sampleDiagrammerClass");
+
+		assertEquals(classSimpleName, sampleDiagrammerClass.getSimpleName());
+
+		outFile = new File("target", classSimpleName + ".svg");
 	}
 
 	private final Class<? extends AvcDiagrammer> sampleDiagrammerClass;
 
+	private final File outFile;
+
 	@Test
 	public void testMain() throws Exception {
 
+		generateSVG();
+	}
+
+	private void generateSVG() throws Exception {
+
 		sampleDiagrammerClass.getMethod("main", String[].class).invoke(null,
-				new Object[]{
-					new String[0]
-				});
+				new Object[] { new String[0] });
 	}
 
 	@Test
 	public void testOutFilename() throws Exception {
 
-		final String classSimpleName = sampleDiagrammerClass.getSimpleName();
-
-		final File outFile = new File("target", classSimpleName + ".svg");
-
 		outFile.delete();
 
-		sampleDiagrammerClass.getMethod("main", String[].class).invoke(null,
-				new Object[]{
-					new String[0]
-				});
+		generateSVG();
 
-		assertTrue("outFile should be created by sample class: " + outFile.getPath(),
-				outFile.exists());
+		assertTrue(
+				"outFile should be created by sample class: "
+						+ outFile.getPath(), outFile.exists());
+	}
+
+	@Test
+	public void svgIsWellFormed() throws Exception {
+
+		if (!outFile.exists()) {
+
+			generateSVG();
+		}
+
+		final DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory
+				.newInstance();
+		documentBuilderFactory.setValidating(false);
+		documentBuilderFactory.setNamespaceAware(true);
+
+		final DocumentBuilder documentBuilder = documentBuilderFactory
+				.newDocumentBuilder();
+
+		documentBuilder.parse(outFile);
 	}
 }
