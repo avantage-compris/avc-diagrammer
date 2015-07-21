@@ -12,7 +12,9 @@ public class AppCenters extends AvcDiagrammer {
 
 	public static void main(final String... args) throws Exception {
 
-		new AppCenters() // .border(1)
+		new AppCenters()
+				// .border(1)
+				.printToSystemOut(false)
 				.addOutputFile(new File("target/AppCenters.svg")) //
 				.run(600, 450);
 	}

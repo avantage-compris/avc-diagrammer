@@ -1,3 +1,5 @@
+<!-- Generated with help from avc-diagrammer:0.1.0-SNAPSHOT -->
+<!-- See: https://github.com/avantage-compris/avc-diagrammer -->
 <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='600' height='450'>
 <path fill-opacity='0.2' stroke-opacity='0.3' d='M20.0,20.0
  h230.0 l20.0,10.0 h-230.0 l-20.0,-10.0 z'
@@ -147,11 +149,11 @@
 <path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M80.0,77.0
  q0.0,134.0 72.5,134.0'
  marker-end='url(#arrow_BLACK)'/>
-<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M190.0,119.0
- l0.0,-25.0'
+<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M190.0,119.5
+ l0.0,-25.5'
  marker-end='url(#arrow_BLACK)'/>
-<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M190.0,259.0
- l0.0,-25.0'
+<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M190.0,259.5
+ l0.0,-25.5'
  marker-end='url(#arrow_BLACK)'/>
 <path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M80.0,77.0
  q0.0,172.5 57.5,244.0'
@@ -159,13 +161,13 @@
 <path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' stroke-dasharray='6,4' d='M227.69230769230768,321.0
  l169.30769230769232,0.0'
  marker-end='url(#arrow_BLACK)'/>
-<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M440.0,309.0
- q0.0,-173.0 -207.5,-173.0'
+<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M440.0,309.5
+ q0.0,-173.5 -207.5,-173.5'
  marker-end='url(#arrow_BLACK)'/>
-<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M440.0,309.0
- q0.0,-33.0 -207.5,-33.0'
+<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M440.0,309.5
+ q0.0,-33.5 -207.5,-33.5'
  marker-end='url(#arrow_BLACK)'/>
-<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M440.0,309.0
- l0.0,-215.0'
+<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M440.0,309.5
+ l0.0,-215.5'
  marker-end='url(#arrow_BLACK)'/>
 </svg>

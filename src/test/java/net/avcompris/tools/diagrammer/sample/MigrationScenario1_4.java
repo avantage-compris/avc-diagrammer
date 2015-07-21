@@ -9,7 +9,9 @@ public class MigrationScenario1_4 extends MigrationScenario1_0 {
 
 	public static void main(final String... args) throws Exception {
 
-		new MigrationScenario1_4() // .border(1)
+		new MigrationScenario1_4()
+				// .border(1)
+				.printToSystemOut(false)
 				.addOutputFile(new File("target/MigrationScenario1_4.svg")) //
 				.run(600, 420);
 	}
@@ -29,7 +31,7 @@ public class MigrationScenario1_4 extends MigrationScenario1_0 {
 				webapp1.total_height() + 10);
 
 		arrow(user, webapp1);
-		
+
 		obsolete(webapp0);
 	}
 }

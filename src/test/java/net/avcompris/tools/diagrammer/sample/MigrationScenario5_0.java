@@ -19,7 +19,7 @@ abstract class MigrationScenario5_0 extends AvcDiagrammer {
 		try {
 
 			// border(1).
-			addOutputFile(
+			printToSystemOut(false).addOutputFile(
 					new File("target/" + getClass().getSimpleName() + ".svg")) //
 					.run(600, 320);
 

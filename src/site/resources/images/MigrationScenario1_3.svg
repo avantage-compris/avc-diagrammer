@@ -1,3 +1,5 @@
+<!-- Generated with help from avc-diagrammer:0.1.0-SNAPSHOT -->
+<!-- See: https://github.com/avantage-compris/avc-diagrammer -->
 <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='600' height='420'>
 <path fill-opacity='0.2' stroke-opacity='0.3' d='M110.0,20.0
  h440.0 l20.0,10.0 h-440.0 l-20.0,-10.0 z'
@@ -105,17 +107,17 @@
 <marker id='arrow_BLACK' markerWidth='6' markerHeight='6' viewBox='-3 -3 6 6' refX='2' refY='0' markerUnits='strokeWidth' orient='auto'>
 <polygon points='-1,0 -3,3 3,0 -3,-3' fill='#000'/>
 </marker>
-<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M450.0,119.0
- l0.0,-25.0'
+<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M450.0,119.5
+ l0.0,-25.5'
  marker-end='url(#arrow_BLACK)'/>
-<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M450.0,259.0
- l0.0,-25.0'
+<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M450.0,259.5
+ l0.0,-25.5'
  marker-end='url(#arrow_BLACK)'/>
-<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M190.0,305.0
- q0.0,-234.0 222.5,-234.0'
+<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M190.0,305.5
+ q0.0,-234.5 222.5,-234.5'
  marker-end='url(#arrow_BLACK)'/>
-<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M190.0,305.0
- q0.0,-94.0 222.5,-94.0'
+<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M190.0,305.5
+ q0.0,-94.5 222.5,-94.5'
  marker-end='url(#arrow_BLACK)'/>
 <path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M240.0,321.0
  l157.0,0.0'

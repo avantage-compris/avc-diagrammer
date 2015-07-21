@@ -13,7 +13,9 @@ public class DefaultArchitecture extends AvcDiagrammer {
 
 	public static void main(final String... args) throws Exception {
 
-		new DefaultArchitecture() // .border(1)
+		new DefaultArchitecture()
+				// .border(1)
+				.printToSystemOut(false)
 				.addOutputFile(new File("target/DefaultArchitecture.svg")) //
 				.run(600, 450);
 	}

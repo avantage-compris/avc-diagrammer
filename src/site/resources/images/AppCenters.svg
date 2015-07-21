@@ -1,3 +1,5 @@
+<!-- Generated with help from avc-diagrammer:0.1.0-SNAPSHOT -->
+<!-- See: https://github.com/avantage-compris/avc-diagrammer -->
 <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='600' height='450'>
 <path fill-opacity='0.2' stroke-opacity='0.3' d='M20.0,20.0
  h230.0 l20.0,10.0 h-230.0 l-20.0,-10.0 z'
@@ -112,10 +114,10 @@
  fill='#fb5' stroke='#000'/>
 <rect fill='#fc6' stroke='#000' x='400.0' y='260.0' width='80.0' height='22.0'/>
 <text x='440.0' y='274.0' font-size='14.0' fill='#000' text-anchor='middle'>workers</text>
-<path d='M400.0,92.0
- v-42.0 a50.0,6.5,0.0,1,1,100.0,0.0 v42.0 z'
+<path d='M410.0,92.0
+ v-42.0 a40.0,6.5,0.0,1,1,80.0,0.0 v42.0 z'
  fill='#fc6' stroke='#000'/>
-<ellipse cx='450.0' cy='92.0' rx='50.0' ry='6.5' fill='#e82' stroke='#000'/>
+<ellipse cx='450.0' cy='92.0' rx='40.0' ry='6.5' fill='#e82' stroke='#000'/>
 <text x='449.0' y='58.0' font-size='14.0' fill='#000' text-anchor='middle'>business</text>
 <text x='449.0' y='78.0' font-size='14.0' fill='#000' text-anchor='middle'>data</text>
 <path d='M320.0,430.0
@@ -141,22 +143,22 @@
 <path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M120.0,66.0
  l32.0,0.0'
  marker-end='url(#arrow_BLACK)'/>
-<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M190.0,119.0
- l0.0,-25.0'
+<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M190.0,119.5
+ l0.0,-25.5'
  marker-end='url(#arrow_BLACK)'/>
-<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M440.0,259.0
- q0.0,-123.0 -207.5,-123.0'
+<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M440.0,259.5
+ q0.0,-123.5 -207.5,-123.5'
  marker-end='url(#arrow_BLACK)'/>
 <path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M120.0,286.0
  l32.0,0.0'
  marker-end='url(#arrow_BLACK)'/>
-<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M190.0,339.0
- l0.0,-25.0'
+<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M190.0,339.5
+ l0.0,-25.5'
  marker-end='url(#arrow_BLACK)'/>
 <path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M450.0,287.0
  q0.0,69.0 -217.5,69.0'
  marker-end='url(#arrow_BLACK)'/>
-<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M440.0,259.0
- l0.0,-165.0'
+<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M450.0,259.5
+ l0.0,-165.5'
  marker-end='url(#arrow_BLACK)'/>
 </svg>

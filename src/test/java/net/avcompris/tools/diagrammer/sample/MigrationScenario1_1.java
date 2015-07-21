@@ -9,7 +9,9 @@ public class MigrationScenario1_1 extends MigrationScenario1_0 {
 
 	public static void main(final String... args) throws Exception {
 
-		new MigrationScenario1_1() // .border(1)
+		new MigrationScenario1_1()
+				// .border(1)
+				.printToSystemOut(false)
 				.addOutputFile(new File("target/MigrationScenario1_1.svg")) //
 				.run(600, 420);
 	}

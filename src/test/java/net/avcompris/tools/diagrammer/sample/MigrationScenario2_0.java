@@ -23,7 +23,7 @@ abstract class MigrationScenario2_0 extends AvcDiagrammer {
 
 		workers = box(_ + 40, 260, 80, "#f93", "workers");
 
-		final Node b_data = database(_+10, 50, 70, ____, "business", "data");
+		final Node b_data = database(_ + 10, 50, 70, ____, "business", "data");
 
 		outside_of_box("BizMaster");
 

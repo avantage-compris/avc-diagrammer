@@ -10,7 +10,9 @@ public class MigrationScenario1_2 extends MigrationScenario1_0 {
 
 	public static void main(final String... args) throws Exception {
 
-		new MigrationScenario1_2() // .border(1)
+		new MigrationScenario1_2()
+				// .border(1)
+				.printToSystemOut(false)
 				.addOutputFile(new File("target/MigrationScenario1_2.svg")) //
 				.run(600, 420);
 	}
@@ -25,7 +27,7 @@ public class MigrationScenario1_2 extends MigrationScenario1_0 {
 		arrow_yellow(webapp1, queue);
 
 		arrows();
-		
+
 		arrow(webapp0, app_data0);
 		arrow(webapp0, BOTTOM, b_commands, LEFT);
 		arrow(webapp0, BOTTOM, queue, LEFT);

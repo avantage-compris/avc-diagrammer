@@ -1,3 +1,5 @@
+<!-- Generated with help from avc-diagrammer:0.1.0-SNAPSHOT -->
+<!-- See: https://github.com/avantage-compris/avc-diagrammer -->
 <svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='600' height='390'>
 <path fill-opacity='0.2' stroke-opacity='0.3' d='M20.0,20.0
  h140.0 l20.0,10.0 h-140.0 l-20.0,-10.0 z'
@@ -25,8 +27,8 @@
 <marker id='arrow_BLACK' markerWidth='6' markerHeight='6' viewBox='-3 -3 6 6' refX='2' refY='0' markerUnits='strokeWidth' orient='auto'>
 <polygon points='-1,0 -3,3 3,0 -3,-3' fill='#000'/>
 </marker>
-<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M85.0,129.0
- l0.0,-35.0'
+<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M85.0,129.5
+ l0.0,-35.5'
  marker-end='url(#arrow_BLACK)'/>
 <path d='M10.0,370.0
  h77.0 l20.0,10.0 h-77.0 l-20.0,-10.0 z'
@@ -85,8 +87,8 @@
  m10.0,10.0 v320.0 h330.0 v-320.0 h-330.0 z'
  fill='#f96' stroke='#000'/>
 <text x='258.0' y='358.0' font-size='14.0' fill='#000' text-anchor='middle'>BizMaster</text>
-<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M335.0,129.0
- l0.0,-35.0'
+<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M335.0,129.5
+ l0.0,-35.5'
  marker-end='url(#arrow_BLACK)'/>
 <path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M295.0,146.0
  l-157.5,0.0'
@@ -116,8 +118,8 @@
 <marker id='arrow_YELLOW' markerWidth='6' markerHeight='6' viewBox='-3 -3 6 6' refX='2' refY='0' markerUnits='strokeWidth' orient='auto'>
 <polygon points='-1,0 -3,3 3,0 -3,-3' fill='#ff0'/>
 </marker>
-<path stroke='#ff0' opacity='0.8' stroke-width='3.0' fill='none' d='M335.0,289.0
- l0.0,-35.0'
+<path stroke='#ff0' opacity='0.8' stroke-width='3.0' fill='none' d='M335.0,289.5
+ l0.0,-35.5'
  marker-end='url(#arrow_YELLOW)'/>
 <path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M435.0,236.0
  l-37.5,0.0'
