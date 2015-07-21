@@ -58,9 +58,11 @@ public abstract class AvcDiagrammer {
 
 	private boolean printToSystemOut = true;
 
-	public final void printToSystemOut(final boolean printToSystemOut) {
+	public final AvcDiagrammer printToSystemOut(final boolean printToSystemOut) {
 
 		this.printToSystemOut = printToSystemOut;
+		
+		return this;
 	}
 
 	private final List<File> outputFiles = new ArrayList<File>();

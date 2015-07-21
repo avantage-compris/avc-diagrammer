@@ -30,6 +30,19 @@ public abstract class SVGDiagrammer {
 	 */
 	public final void run(final int width, final int height) {
 
+		// final DateTime now = new DateTime();
+
+		final AppInfo appInfo = AppInfo.get();
+
+		println(
+		// "<!-- Generated on " + now
+		"<!-- Generated" //
+				+ " with help from " + appInfo.artifactId
+				+ ":"
+				+ appInfo.version + " -->");
+
+		println("<!-- See: " + appInfo.url + " -->");
+
 		println("<svg xmlns='http://www.w3.org/2000/svg'"
 				+ " xmlns:xlink='http://www.w3.org/1999/xlink'" + " width='"
 				+ width + "' height='" + height + "'>");
@@ -384,15 +397,16 @@ public abstract class SVGDiagrammer {
 
 	private boolean printToSystemOut = true;
 
-	public final void printToSystemOut(final boolean printToSystemOut) {
+	public final SVGDiagrammer printToSystemOut(final boolean printToSystemOut) {
 
 		this.printToSystemOut = printToSystemOut;
+
+		return this;
 	}
 
 	private final List<File> outputFiles = new ArrayList<File>();
 
-	protected final SVGDiagrammer addOutputFile(final File outputFile)
-			throws IOException {
+	protected final SVGDiagrammer addOutputFile(final File outputFile) throws IOException {
 
 		checkNotNull(outputFile, "outputFile");
 

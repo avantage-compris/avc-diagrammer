@@ -46,6 +46,12 @@
 	</dependencies>
 
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -95,8 +101,8 @@
 	<description>
 		Ad hoc tools to generate SVG diagrams.
 	</description>
-	<url>http://code.google.com/p/${project.artifactId}/</url>
-
+	<url>https://github.com/avantage-compris/avc-diagrammer</url>
+	
 	<repositories>
 		<repository>
 			<id>avcompris-snapshots</id>
