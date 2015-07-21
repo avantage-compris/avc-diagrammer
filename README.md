@@ -23,7 +23,7 @@ The following program
     
 will output to stdout the following image (in SVG): [MyFirstDiagram.svg](src/site/resources/images/MyFirstDiagram.svg)
 
-![MyFirstDiagram.png: "Hello World!" in a box](src/site/resources/rasterized/MyFirstDiagram.png)
+![MyFirstDiagram.png: “Hello World!” in a box](src/site/resources/rasterized/MyFirstDiagram.png "Hello World!")
 
 ## Samples
 
@@ -31,15 +31,11 @@ will output to stdout the following image (in SVG): [MyFirstDiagram.svg](src/sit
   
     SVG file: [AppCenters.svg](src/site/resources/images/AppCenters.svg)
   
-    <!-- ![AppCenters.svg: App Centers](src/site/resources/rasterized/AppCenters.png =100x) -->
-
     <img alt="AppCenters.svg: App Centers" src="src/site/resources/rasterized/AppCenters.png" width="100px">
 
   * Java code: [DefaultArchitecture.java](src/test/java/net/avcompris/tools/diagrammer/sample/DefaultArchitecture.java)
   
     SVG file: [DefaultArchitecture.svg](src/site/resources/images/DefaultArchitecture.svg)
-    
-    <!-- ![DefaultArchitecture.svg: App Centers](src/site/resources/rasterized/DefaultArchitecture.png =100x) -->
 
     <img alt="DefaultArchitecture: Default Architecture" src="src/site/resources/rasterized/DefaultArchitecture.png" width="100px">
 
@@ -53,9 +49,9 @@ will output to stdout the following image (in SVG): [MyFirstDiagram.svg](src/sit
     [1_3.svg](src/site/resources/images/MigrationScenario1_3.svg)
     [1_4.svg](src/site/resources/images/MigrationScenario1_4.svg)
 
-    <img alt="Migration Scenario #1.1" src="src/site/resources/rasterized/MigrationScenario1_1.png" width="100px"> &nbsp;&nbsp;&nbsp;&nbsp;
-    <img alt="Migration Scenario #1.2" src="src/site/resources/rasterized/MigrationScenario1_2.png" width="100px"> &nbsp;&nbsp;&nbsp;&nbsp;
-    <img alt="Migration Scenario #1.3" src="src/site/resources/rasterized/MigrationScenario1_3.png" width="100px"> &nbsp;&nbsp;&nbsp;&nbsp;
+    <img alt="Migration Scenario #1.1" src="src/site/resources/rasterized/MigrationScenario1_1.png" width="100px"> &#160;&#160;&#160;&#160;
+    <img alt="Migration Scenario #1.2" src="src/site/resources/rasterized/MigrationScenario1_2.png" width="100px"> &#160;&#160;&#160;&#160;
+    <img alt="Migration Scenario #1.3" src="src/site/resources/rasterized/MigrationScenario1_3.png" width="100px"> &#160;&#160;&#160;&#160;
     <img alt="Migration Scenario #1.4" src="src/site/resources/rasterized/MigrationScenario1_4.png" width="100px">
         
   * Java code: [MigrationScenario2_1.java](src/test/java/net/avcompris/tools/diagrammer/sample/MigrationScenario2_1.java)
@@ -68,9 +64,9 @@ will output to stdout the following image (in SVG): [MyFirstDiagram.svg](src/sit
     [2_3.svg](src/site/resources/images/MigrationScenario2_3.svg)
     [2_4.svg](src/site/resources/images/MigrationScenario2_4.svg)
 
-    <img alt="Migration Scenario #2.1" src="src/site/resources/rasterized/MigrationScenario2_1.png" width="100px"> &nbsp;&nbsp;&nbsp;&nbsp;
-    <img alt="Migration Scenario #2.2" src="src/site/resources/rasterized/MigrationScenario2_2.png" width="100px"> &nbsp;&nbsp;&nbsp;&nbsp;
-    <img alt="Migration Scenario #2.3" src="src/site/resources/rasterized/MigrationScenario2_3.png" width="100px"> &nbsp;&nbsp;&nbsp;&nbsp;
+    <img alt="Migration Scenario #2.1" src="src/site/resources/rasterized/MigrationScenario2_1.png" width="100px"> &#160;&#160;&#160;&#160;
+    <img alt="Migration Scenario #2.2" src="src/site/resources/rasterized/MigrationScenario2_2.png" width="100px"> &#160;&#160;&#160;&#160;
+    <img alt="Migration Scenario #2.3" src="src/site/resources/rasterized/MigrationScenario2_3.png" width="100px"> &#160;&#160;&#160;&#160;
     <img alt="Migration Scenario #2.4" src="src/site/resources/rasterized/MigrationScenario2_4.png" width="100px">
                                                                                                 
   * Java code: [MigrationScenario3_1.java](src/test/java/net/avcompris/tools/diagrammer/sample/MigrationScenario3_1.java)
@@ -85,10 +81,10 @@ will output to stdout the following image (in SVG): [MyFirstDiagram.svg](src/sit
     [3_4.svg](src/site/resources/images/MigrationScenario3_4.svg)
     [3_5.svg](src/site/resources/images/MigrationScenario3_5.svg)
 
-    <img alt="Migration Scenario #3.1" src="src/site/resources/rasterized/MigrationScenario3_1.png" width="100px"> &nbsp;&nbsp;&nbsp;&nbsp;
-    <img alt="Migration Scenario #3.2" src="src/site/resources/rasterized/MigrationScenario3_2.png" width="100px"> &nbsp;&nbsp;&nbsp;&nbsp;
-    <img alt="Migration Scenario #3.3" src="src/site/resources/rasterized/MigrationScenario3_3.png" width="100px"> &nbsp;&nbsp;&nbsp;&nbsp;
-    <img alt="Migration Scenario #3.4" src="src/site/resources/rasterized/MigrationScenario3_4.png" width="100px"> &nbsp;&nbsp;&nbsp;&nbsp;
+    <img alt="Migration Scenario #3.1" src="src/site/resources/rasterized/MigrationScenario3_1.png" width="100px"> &#160;&#160;&#160;&#160;
+    <img alt="Migration Scenario #3.2" src="src/site/resources/rasterized/MigrationScenario3_2.png" width="100px"> &#160;&#160;&#160;&#160;
+    <img alt="Migration Scenario #3.3" src="src/site/resources/rasterized/MigrationScenario3_3.png" width="100px"> &#160;&#160;&#160;&#160;
+    <img alt="Migration Scenario #3.4" src="src/site/resources/rasterized/MigrationScenario3_4.png" width="100px"> &#160;&#160;&#160;&#160;
     <img alt="Migration Scenario #3.5" src="src/site/resources/rasterized/MigrationScenario3_5.png" width="100px">
                                                                                                                                                                                                                                                                                                
   * Java code: [MigrationScenario4_1.java](src/test/java/net/avcompris/tools/diagrammer/sample/MigrationScenario4_1.java)
@@ -101,9 +97,9 @@ will output to stdout the following image (in SVG): [MyFirstDiagram.svg](src/sit
     [4_3.svg](src/site/resources/images/MigrationScenario4_3.svg)
     [4_4.svg](src/site/resources/images/MigrationScenario4_4.svg)
 
-    <img alt="Migration Scenario #4.1" src="src/site/resources/rasterized/MigrationScenario4_1.png" width="100px"> &nbsp;&nbsp;&nbsp;&nbsp;
-    <img alt="Migration Scenario #4.2" src="src/site/resources/rasterized/MigrationScenario4_2.png" width="100px"> &nbsp;&nbsp;&nbsp;&nbsp;
-    <img alt="Migration Scenario #4.3" src="src/site/resources/rasterized/MigrationScenario4_3.png" width="100px"> &nbsp;&nbsp;&nbsp;&nbsp;
+    <img alt="Migration Scenario #4.1" src="src/site/resources/rasterized/MigrationScenario4_1.png" width="100px"> &#160;&#160;&#160;&#160;
+    <img alt="Migration Scenario #4.2" src="src/site/resources/rasterized/MigrationScenario4_2.png" width="100px"> &#160;&#160;&#160;&#160;
+    <img alt="Migration Scenario #4.3" src="src/site/resources/rasterized/MigrationScenario4_3.png" width="100px"> &#160;&#160;&#160;&#160;
     <img alt="Migration Scenario #4.4" src="src/site/resources/rasterized/MigrationScenario4_4.png" width="100px">
                                                                                                                                                                                                                                                                                                
   * Java code: [MigrationScenario5_1.java](src/test/java/net/avcompris/tools/diagrammer/sample/MigrationScenario5_1.java)
@@ -116,9 +112,9 @@ will output to stdout the following image (in SVG): [MyFirstDiagram.svg](src/sit
     [5_3.svg](src/site/resources/images/MigrationScenario5_3.svg)
     [5_4.svg](src/site/resources/images/MigrationScenario5_4.svg)
 
-    <img alt="Migration Scenario #5.1" src="src/site/resources/rasterized/MigrationScenario5_1.png" width="100px"> &nbsp;&nbsp;&nbsp;&nbsp;
-    <img alt="Migration Scenario #5.2" src="src/site/resources/rasterized/MigrationScenario5_2.png" width="100px"> &nbsp;&nbsp;&nbsp;&nbsp;
-    <img alt="Migration Scenario #5.3" src="src/site/resources/rasterized/MigrationScenario5_3.png" width="100px"> &nbsp;&nbsp;&nbsp;&nbsp;
+    <img alt="Migration Scenario #5.1" src="src/site/resources/rasterized/MigrationScenario5_1.png" width="100px"> &#160;&#160;&#160;&#160;
+    <img alt="Migration Scenario #5.2" src="src/site/resources/rasterized/MigrationScenario5_2.png" width="100px"> &#160;&#160;&#160;&#160;
+    <img alt="Migration Scenario #5.3" src="src/site/resources/rasterized/MigrationScenario5_3.png" width="100px"> &#160;&#160;&#160;&#160;
     <img alt="Migration Scenario #5.4" src="src/site/resources/rasterized/MigrationScenario5_4.png" width="100px">
 
                                                                                                 
@@ -134,8 +130,8 @@ will output to stdout the following image (in SVG): [MyFirstDiagram.svg](src/sit
     [6_4.svg](src/site/resources/images/MigrationScenario6_4.svg)
     [6_5.svg](src/site/resources/images/MigrationScenario6_5.svg)
 
-    <img alt="Migration Scenario #6.1" src="src/site/resources/rasterized/MigrationScenario6_1.png" width="100px"> &nbsp;&nbsp;&nbsp;&nbsp;
-    <img alt="Migration Scenario #6.2" src="src/site/resources/rasterized/MigrationScenario6_2.png" width="100px"> &nbsp;&nbsp;&nbsp;&nbsp;
-    <img alt="Migration Scenario #6.3" src="src/site/resources/rasterized/MigrationScenario6_3.png" width="100px"> &nbsp;&nbsp;&nbsp;&nbsp;
-    <img alt="Migration Scenario #6.4" src="src/site/resources/rasterized/MigrationScenario6_4.png" width="100px"> &nbsp;&nbsp;&nbsp;&nbsp;
+    <img alt="Migration Scenario #6.1" src="src/site/resources/rasterized/MigrationScenario6_1.png" width="100px"> &#160;&#160;&#160;&#160;
+    <img alt="Migration Scenario #6.2" src="src/site/resources/rasterized/MigrationScenario6_2.png" width="100px"> &#160;&#160;&#160;&#160;
+    <img alt="Migration Scenario #6.3" src="src/site/resources/rasterized/MigrationScenario6_3.png" width="100px"> &#160;&#160;&#160;&#160;
+    <img alt="Migration Scenario #6.4" src="src/site/resources/rasterized/MigrationScenario6_4.png" width="100px"> &#160;&#160;&#160;&#160;
     <img alt="Migration Scenario #6.5" src="src/site/resources/rasterized/MigrationScenario6_5.png" width="100px">
