@@ -107,7 +107,7 @@
 		<repository>
 			<id>avcompris-snapshots</id>
 			<name>Avantage Compris' Snapshot Repository</name>
-			<url>http://repo.avcompris.net/content/groups/public-snapshots</url>
+			<url>https://repo.avcompris.net/content/groups/public-snapshots</url>
 			<releases>
 				<enabled>false</enabled>
 			</releases>
@@ -118,7 +118,7 @@
 		<repository>
 			<id>avcompris</id>
 			<name>Avantage Compris' Repository</name>
-			<url>http://repo.avcompris.net/content/groups/public</url>
+			<url>https://repo.avcompris.net/content/groups/public</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
@@ -138,7 +138,7 @@
 	<distributionManagement>
 		<site>
 			<id>avcompris-sites</id>
-			<url>dav:http://repo.avcompris.net/content/sites/pub/${project.artifactId}/${project.version}</url>
+			<url>dav:https://repo.avcompris.net/content/sites/pub/${project.artifactId}/${project.version}</url>
 		</site>
 	</distributionManagement>
 
