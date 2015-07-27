@@ -417,7 +417,7 @@ public abstract class SVGDiagrammer {
 		return this;
 	}
 
-	private void println(final String s) {
+	final void println(final String s) {
 
 		if (printToSystemOut) {
 
@@ -438,7 +438,7 @@ public abstract class SVGDiagrammer {
 		}
 	}
 
-	private void print(final String s) {
+	final void print(final String s) {
 
 		if (printToSystemOut) {
 

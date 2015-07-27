@@ -61,7 +61,7 @@ public abstract class AvcDiagrammer {
 	public final AvcDiagrammer printToSystemOut(final boolean printToSystemOut) {
 
 		this.printToSystemOut = printToSystemOut;
-		
+
 		return this;
 	}
 
@@ -129,7 +129,7 @@ public abstract class AvcDiagrammer {
 		};
 
 		diagrammer.printToSystemOut(printToSystemOut);
-		
+
 		for (final File outputFile : outputFiles) {
 
 			try {
@@ -144,6 +144,24 @@ public abstract class AvcDiagrammer {
 		diagrammer().run(width, height);
 
 		diagrammer = null;
+	}
+
+	private boolean hasFilter1Def = false;
+
+	private void ensureFilter1Def() {
+
+		if (hasFilter1Def) {
+			return;
+		}
+
+		hasFilter1Def = true;
+
+		diagrammer().println("<defs>");
+		diagrammer().println("<filter id='filter-shadow1'>");
+		diagrammer().println(
+				"<feGaussianBlur in='SourceGraphic' stdDeviation='5'/>");
+		diagrammer().println("</filter>");
+		diagrammer().println("</defs>");
 	}
 
 	private final Set<ArrowColor> arrowDefsAlreadyEmbedded = new HashSet<ArrowColor>();
@@ -504,7 +522,7 @@ public abstract class AvcDiagrammer {
 		currentNode = new NodeBox(box);
 	}
 
-	protected final void outside_of_box(final String... labels) {
+	protected final Node outside_of_box(final String... labels) {
 
 		final Box box = boxStack.pop();
 
@@ -570,6 +588,8 @@ public abstract class AvcDiagrammer {
 					.y(box.y + box.height + i * LINE_HEIGHT - 12).fontSize(14)
 					.fill("#000").textAnchor("middle").close();
 		}
+
+		return new NodeBox(box.x, box.y, box.width, box.height, box.fillColor);
 	}
 
 	private static int getTextWidth(final String text) {
@@ -761,6 +781,138 @@ public abstract class AvcDiagrammer {
 		public abstract double middle_y_left();
 
 		public abstract double middle_y_right();
+	}
+
+	private class NodePlain extends Node {
+
+		public NodePlain(
+				final double x,
+				final double y,
+				final double width,
+				final double height,
+				final String fillColor) {
+
+			super(x, y, width, height, fillColor);
+		}
+
+		@Override
+		public double top() {
+
+			return y;
+		}
+
+		@Override
+		public double right() {
+
+			return x + width;
+		}
+
+		@Override
+		public double bottom() {
+
+			return y + height;
+		}
+
+		@Override
+		public double left() {
+
+			return x;
+		}
+
+		@Override
+		public int total_height() {
+
+			return (int) height;
+		}
+
+		@Override
+		public double middle_x_top() {
+
+			return x + width / 2;
+		}
+
+		@Override
+		public double middle_x_bottom() {
+
+			return x + width / 2;
+		}
+
+		@Override
+		public double middle_y_left() {
+
+			return y + height / 2;
+		}
+
+		@Override
+		public double middle_y_right() {
+
+			return y + height / 2;
+		}
+	}
+
+	private class NodeDirectory extends Node {
+
+		public NodeDirectory(
+				final double x,
+				final double y,
+				final String fillColor) {
+
+			super(x - 8, y, 30, 30, fillColor);
+		}
+
+		@Override
+		public double top() {
+
+			return y - 1;
+		}
+
+		@Override
+		public double right() {
+
+			return x + width;
+		}
+
+		@Override
+		public double bottom() {
+
+			return y + height;
+		}
+
+		@Override
+		public double left() {
+
+			return x;
+		}
+
+		@Override
+		public int total_height() {
+
+			return (int) height;
+		}
+
+		@Override
+		public double middle_x_top() {
+
+			return x + 6;
+		}
+
+		@Override
+		public double middle_x_bottom() {
+
+			return x + width / 2;
+		}
+
+		@Override
+		public double middle_y_left() {
+
+			return y + height / 2;
+		}
+
+		@Override
+		public double middle_y_right() {
+
+			return y + height / 2;
+		}
 	}
 
 	private class NodeBox extends Node {
@@ -1111,6 +1263,37 @@ public abstract class AvcDiagrammer {
 
 			x2 = x1;
 
+		} else if (from.bottom() < to.top()) {
+
+			y1 = from.bottom() - 0.5;
+			y2 = to.top() - 2.5;
+
+			if (from.left() <= to.left() && from.right() >= to.right()) {
+
+				x1 = to.middle_x_top();
+
+			} else if (from.left() >= to.left() && from.right() <= to.right()) {
+
+				x1 = from.middle_x_bottom();
+
+			} else if (from.middle_x_bottom() >= to.left()
+					&& from.middle_x_bottom() <= to.right()) {
+
+				x1 = from.middle_x_bottom();
+
+			} else {
+
+				System.err.println("from.top: " + from.top() //
+						+ " > to.bottom: " + to.bottom());
+				System.err.println("from.left: " + from.left() //
+						+ ", to.left: " + to.left());
+				System.err.println("from.right: " + from.right() //
+						+ ", to.right: " + to.right());
+				throw new NotImplementedException();
+			}
+
+			x2 = x1;
+
 		} else {
 
 			throw new NotImplementedException();
@@ -1281,5 +1464,138 @@ public abstract class AvcDiagrammer {
 				.q(qx - x1, qy - y1, x2 - x1, y2 - y1).leaveOpen()
 				.property("marker-end", "url(#arrow_" + color.name() + ")")
 				.close();
+	}
+
+	protected final Node[] installed_packages(final String fillColor,
+			final String... packageNames) {
+
+		return installed_packages(130, fillColor, packageNames);
+	}
+
+	protected final Node[] installed_packages(final int width,
+			final String fillColor, final String... packageNames) {
+
+		final Box currentBox = boxStack.peek();
+
+		final Node[] nodes = new Node[packageNames.length];
+
+		for (int i = 0; i < packageNames.length; ++i) {
+
+			final int dy = i * LINE_HEIGHT;
+
+			final Node node = box((int) currentBox.x + BOX_OFFSET,
+					(int) currentBox.y + BOX_OFFSET + dy, width, LINE_HEIGHT,
+					fillColor, packageNames[i]);
+
+			nodes[i] = node;
+		}
+
+		return nodes;
+	}
+
+	private final List<Box> dockerImages = new ArrayList<Box>();
+
+	protected final Node docker_image(final int x, final int y,
+			final int width, final int height, final String label) {
+
+		final double x_ = handleUnderscore(previousNode().x, x);
+		final double y_ = handleUnderscore(previousNode().y, y);
+		final double w_ = handleUnderscore(previousNode().width, width);
+		final double h_ = handleUnderscore(previousNode().height, height);
+
+		final String fillColor = "#668";
+
+		dockerImages.add(new Box(x_, y_, w_, h_, fillColor));
+
+		ensureFilter1Def();
+
+		diagrammer().rect().x(x_ + DEPTH_DX).y(y_ + DEPTH_DY).rx(20).ry(20)
+				.width(w_).height(h_).stroke("none").strokeWidth(5)
+				.fill("#668").opacity(0.3)
+				.property("filter", "url(#filter-shadow1)").close();
+
+		diagrammer().rect().x(x_).y(y_).rx(20).ry(20).width(w_).height(h_)
+				.stroke("#f60").strokeWidth(5).fill("#ccd").close();
+
+		diagrammer().text(label).x(x_ + w_ / 2).y(y_ + h_ - 12).fontSize(14)
+				.fill("#000").textAnchor("middle").close();
+
+		return new NodePlain(x_ - 2, y_ - 2, w_ + 4, h_ + 4, fillColor);
+	}
+
+	protected final void docker_packages(final String... packageNames) {
+
+		final Box box = dockerImages.get(dockerImages.size() - 1);
+
+		final int width = (int) box.width - 40;
+
+		int i = 0;
+
+		for (final String packageName : packageNames) {
+
+			++i;
+
+			diagrammer().rect().x(box.x + BOX_OFFSET + 10)
+					.y(box.y + BOX_OFFSET + i * LINE_HEIGHT - 20).width(width)
+					.height(LINE_HEIGHT - 2).stroke("none").fill("#999")
+					.close();
+
+			diagrammer().text(packageName)
+					.x(box.x + BOX_OFFSET + width / 2 + 10)
+					.y(box.y + BOX_OFFSET + i * LINE_HEIGHT - 7).fontSize(14)
+					.fill("#000").textAnchor("middle").close();
+		}
+	}
+
+	private final Set<String> directoryColors = new HashSet<String>();
+
+	private void ensureDirectory(final String fillColor) {
+
+		if (directoryColors.contains(fillColor)) {
+			return;
+		}
+
+		directoryColors.add(fillColor);
+
+		diagrammer().println("<defs>");
+		diagrammer().println("<g id='directory'>");
+		diagrammer().println(
+				"<path d='m38,44 v-20 h12 l2,4 h14 v16 h-28'"
+						+ " opacity='0.3' fill='" + fillColor
+						+ "' filter='url(#filter-shadow1)'/>");
+		diagrammer().println(
+				"<path d='m30,40 v-20 h12 l2,4 h14 v16 h-28'"
+						+ " stroke='#000' stroke-width='1' fill='#fc9'/>");
+		diagrammer().println("</g>");
+		diagrammer().println("</defs>");
+	}
+
+	protected final Node directory(final int x, final int y,
+			final String fillColor, final String path) {
+
+		return directory("#directory", x, y, fillColor, path);
+	}
+
+	private final Node directory(final String id, final int x, final int y,
+			final String fillColor, final String path) {
+
+		final double x_ = handleUnderscore(previousNode().x, x);
+		final double y_ = handleUnderscore(previousNode().y, y);
+
+		ensureDirectory(fillColor);
+
+		diagrammer().text(path).x(x_).y(y_ + 36).fontSize(10)
+				.fontFamily("monospace").fill("#000").textAnchor("middle")
+				.close();
+
+		// diagrammer().text(path).x(x_ + 8).y(y_ + 40).fontSize(10)
+		// 		.fontFamily("monospace").fill("#000").textAnchor("middle")
+		// 		.property("filter", "url(#filter-shadow1)").close();
+
+		diagrammer().println(
+				"<use xlink:href='" + id + "' x='" + (x_ - 38) + "' y='"
+						+ (y_ - 20) + "'/>");
+
+		return new NodeDirectory(x_, y_, fillColor);
 	}
 }

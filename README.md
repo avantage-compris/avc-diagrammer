@@ -135,3 +135,16 @@ will output to stdout the following image (in SVG): [MyFirstDiagram.svg](src/sit
     <img alt="Migration Scenario #6.3" src="src/site/resources/rasterized/MigrationScenario6_3.png" width="100px"> &#160;&#160;&#160;&#160;
     <img alt="Migration Scenario #6.4" src="src/site/resources/rasterized/MigrationScenario6_4.png" width="100px"> &#160;&#160;&#160;&#160;
     <img alt="Migration Scenario #6.5" src="src/site/resources/rasterized/MigrationScenario6_5.png" width="100px">
+
+                                                                                                
+  * Java code: [DockerJenkinsSlave0_0.java](src/test/java/net/avcompris/tools/diagrammer/sample/DockerJenkinsSlave0_0.java)
+    [0_1.java](src/test/java/net/avcompris/tools/diagrammer/sample/DockerJenkinsSlave0_1.java)
+    [0_2.java](src/test/java/net/avcompris/tools/diagrammer/sample/DockerJenkinsSlave0_2.java)
+  
+    SVG files: [DockerJenkinsSlave0_0.svg](src/site/resources/images/DockerJenkinsSlave0_0.svg)
+    [0_1.svg](src/site/resources/images/DockerJenkinsSlave0_1.svg)
+    [0_2.svg](src/site/resources/images/DockerJenkinsSlave0_2.svg)
+
+    <img alt="Docker+Jenkins Slave0 #0" src="src/site/resources/rasterized/DockerJenkinsSlave0_0.png" width="100px"> &#160;&#160;&#160;&#160;
+    <img alt="Docker+Jenkins Slave0 #1" src="src/site/resources/rasterized/DockerJenkinsSlave0_1.png" width="100px"> &#160;&#160;&#160;&#160;
+    <img alt="Docker+Jenkins Slave0 #2" src="src/site/resources/rasterized/DockerJenkinsSlave0_2.png" width="100px">

@@ -1,0 +1,263 @@
+<!-- Generated with help from avc-diagrammer:0.1.0-SNAPSHOT -->
+<!-- See: https://github.com/avantage-compris/avc-diagrammer -->
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='640' height='470'>
+<path fill-opacity='0.2' stroke-opacity='0.3' d='M20.0,20.0
+ h230.0 l20.0,10.0 h-230.0 l-20.0,-10.0 z'
+ fill='#58e' stroke='#000'/>
+<path fill-opacity='0.2' stroke-opacity='0.3' d='M20.0,20.0
+ l20.0,10.0 v380.0 l-20.0,-10.0 v-380.0 z'
+ fill='#8bf' stroke='#000'/>
+<path fill-opacity='0.2' stroke-opacity='0.3' d='M40.0,30.0
+ h230.0 v380.0 h-230.0 v-380.0 z'
+ fill='#9cf' stroke='#000'/>
+<path d='M20.0,40.0
+ h130.0 l20.0,10.0 h-130.0 l-20.0,-10.0 z'
+ fill='#25b' stroke='#000'/>
+<path d='M150.0,40.0
+ v-20.0 l20.0,10.0 v20.0 l-20.0,-10.0 z'
+ fill='#58e' stroke='#000'/>
+<rect fill='#69f' stroke='#000' x='20.0' y='20.0' width='130.0' height='20.0'/>
+<text x='85.0' y='34.0' font-size='14.0' fill='#000' text-anchor='middle'>virtualbox</text>
+<path fill-opacity='0.2' stroke-opacity='0.3' d='M40.0,70.0
+ h160.0 l20.0,10.0 h-160.0 l-20.0,-10.0 z'
+ fill='#5e5' stroke='#000'/>
+<path fill-opacity='0.2' stroke-opacity='0.3' d='M40.0,70.0
+ l20.0,10.0 v200.0 l-20.0,-10.0 v-200.0 z'
+ fill='#8f8' stroke='#000'/>
+<path fill-opacity='0.2' stroke-opacity='0.3' d='M60.0,80.0
+ h160.0 v200.0 h-160.0 v-200.0 z'
+ fill='#9f9' stroke='#000'/>
+<path d='M40.0,90.0
+ h130.0 l20.0,10.0 h-130.0 l-20.0,-10.0 z'
+ fill='#2b2' stroke='#000'/>
+<path d='M170.0,90.0
+ v-20.0 l20.0,10.0 v20.0 l-20.0,-10.0 z'
+ fill='#5e5' stroke='#000'/>
+<rect fill='#6f6' stroke='#000' x='40.0' y='70.0' width='130.0' height='20.0'/>
+<text x='105.0' y='84.0' font-size='14.0' fill='#000' text-anchor='middle'>docker</text>
+<defs>
+<filter id='filter-shadow1'>
+<feGaussianBlur in='SourceGraphic' stdDeviation='5'/>
+</filter>
+</defs>
+<rect x='70.0' y='230.0' rx='20.0' ry='20.0' width='130.0' height='30.0' stroke='none' stroke-width='5.0' fill='#668' opacity='0.3' filter='url(#filter-shadow1)'/>
+<rect x='50.0' y='220.0' rx='20.0' ry='20.0' width='130.0' height='30.0' stroke='#f60' stroke-width='5.0' fill='#ccd'/>
+<text x='115.0' y='238.0' font-size='14.0' fill='#000' text-anchor='middle'>docker-registry</text>
+<path d='M30.0,320.0
+ h112.0 l20.0,10.0 h-112.0 l-20.0,-10.0 z'
+ fill='#5e5' stroke='#000'/>
+<path d='M142.0,320.0
+ v-40.0 l20.0,10.0 v40.0 l-20.0,-10.0 z'
+ fill='#8f8' stroke='#000'/>
+<path d='M142.0,280.0
+ h68.0 l20.0,10.0 h-68.0 l-20.0,-10.0 z'
+ fill='#5e5' stroke='#000'/>
+<path d='M210.0,280.0
+ v-220.0 l20.0,10.0 v220.0 l-20.0,-10.0 z'
+ fill='#8f8' stroke='#000'/>
+<path fill-rule='evenodd' d='M30.0,60.0
+ h180.0 v220.0 h-68.0 v40.0 h-112.0 v-260.0 z
+ m10.0,10.0 v200.0 h160.0 v-200.0 h-160.0 z'
+ fill='#9f9' stroke='#000'/>
+<text x='86.0' y='288.0' font-size='14.0' fill='#000' text-anchor='middle'>CentOS 7</text>
+<text x='86.0' y='308.0' font-size='14.0' fill='#000' text-anchor='middle'>VM-with-docker</text>
+<defs>
+<g id='directory'>
+<path d='m38,44 v-20 h12 l2,4 h14 v16 h-28' opacity='0.3' fill='#69f' filter='url(#filter-shadow1)'/>
+<path d='m30,40 v-20 h12 l2,4 h14 v16 h-28' stroke='#000' stroke-width='1' fill='#fc9'/>
+</g>
+</defs>
+<text x='110.0' y='386.0' font-size='10.0' font-family='monospace' fill='#000' text-anchor='middle'>/var/docker-registry</text>
+<use xlink:href='#directory' x='72.0' y='330.0'/>
+<path d='M10.0,450.0
+ h56.0 l20.0,10.0 h-56.0 l-20.0,-10.0 z'
+ fill='#58e' stroke='#000'/>
+<path d='M66.0,450.0
+ v-40.0 l20.0,10.0 v40.0 l-20.0,-10.0 z'
+ fill='#8bf' stroke='#000'/>
+<path d='M66.0,410.0
+ h194.0 l20.0,10.0 h-194.0 l-20.0,-10.0 z'
+ fill='#58e' stroke='#000'/>
+<path d='M260.0,410.0
+ v-400.0 l20.0,10.0 v400.0 l-20.0,-10.0 z'
+ fill='#8bf' stroke='#000'/>
+<path fill-rule='evenodd' d='M10.0,10.0
+ h250.0 v400.0 h-194.0 v40.0 h-56.0 v-440.0 z
+ m10.0,10.0 v380.0 h230.0 v-380.0 h-230.0 z'
+ fill='#9cf' stroke='#000'/>
+<text x='38.0' y='418.0' font-size='14.0' fill='#000' text-anchor='middle'>Debian</text>
+<text x='38.0' y='438.0' font-size='14.0' fill='#000' text-anchor='middle'>Host 2</text>
+<path fill-opacity='0.2' stroke-opacity='0.3' d='M310.0,20.0
+ h290.0 l20.0,10.0 h-290.0 l-20.0,-10.0 z'
+ fill='#55e' stroke='#000'/>
+<path fill-opacity='0.2' stroke-opacity='0.3' d='M310.0,20.0
+ l20.0,10.0 v190.0 l-20.0,-10.0 v-190.0 z'
+ fill='#88f' stroke='#000'/>
+<path fill-opacity='0.2' stroke-opacity='0.3' d='M330.0,30.0
+ h290.0 v190.0 h-290.0 v-190.0 z'
+ fill='#99f' stroke='#000'/>
+<path d='M310.0,40.0
+ h130.0 l20.0,10.0 h-130.0 l-20.0,-10.0 z'
+ fill='#22b' stroke='#000'/>
+<path d='M440.0,40.0
+ v-20.0 l20.0,10.0 v20.0 l-20.0,-10.0 z'
+ fill='#55e' stroke='#000'/>
+<rect fill='#66f' stroke='#000' x='310.0' y='20.0' width='130.0' height='20.0'/>
+<text x='375.0' y='34.0' font-size='14.0' fill='#000' text-anchor='middle'>virtualbox</text>
+<path fill-opacity='0.2' stroke-opacity='0.3' d='M490.0,70.0
+ h90.0 l20.0,10.0 h-90.0 l-20.0,-10.0 z'
+ fill='#55e' stroke='#000'/>
+<path fill-opacity='0.2' stroke-opacity='0.3' d='M490.0,70.0
+ l20.0,10.0 v60.0 l-20.0,-10.0 v-60.0 z'
+ fill='#88f' stroke='#000'/>
+<path fill-opacity='0.2' stroke-opacity='0.3' d='M510.0,80.0
+ h90.0 v60.0 h-90.0 v-60.0 z'
+ fill='#99f' stroke='#000'/>
+<path d='M490.0,90.0
+ h50.0 l20.0,10.0 h-50.0 l-20.0,-10.0 z'
+ fill='#22b' stroke='#000'/>
+<path d='M540.0,90.0
+ v-20.0 l20.0,10.0 v20.0 l-20.0,-10.0 z'
+ fill='#55e' stroke='#000'/>
+<rect fill='#66f' stroke='#000' x='490.0' y='70.0' width='50.0' height='20.0'/>
+<text x='515.0' y='84.0' font-size='14.0' fill='#000' text-anchor='middle'>git</text>
+<path d='M490.0,110.0
+ h50.0 l20.0,10.0 h-50.0 l-20.0,-10.0 z'
+ fill='#22b' stroke='#000'/>
+<path d='M540.0,110.0
+ v-20.0 l20.0,10.0 v20.0 l-20.0,-10.0 z'
+ fill='#55e' stroke='#000'/>
+<rect fill='#66f' stroke='#000' x='490.0' y='90.0' width='50.0' height='20.0'/>
+<text x='515.0' y='104.0' font-size='14.0' fill='#000' text-anchor='middle'>hg</text>
+<path d='M480.0,180.0
+ h63.0 l20.0,10.0 h-63.0 l-20.0,-10.0 z'
+ fill='#55e' stroke='#000'/>
+<path d='M543.0,180.0
+ v-40.0 l20.0,10.0 v40.0 l-20.0,-10.0 z'
+ fill='#88f' stroke='#000'/>
+<path d='M543.0,140.0
+ h47.0 l20.0,10.0 h-47.0 l-20.0,-10.0 z'
+ fill='#55e' stroke='#000'/>
+<path d='M590.0,140.0
+ v-80.0 l20.0,10.0 v80.0 l-20.0,-10.0 z'
+ fill='#88f' stroke='#000'/>
+<path fill-rule='evenodd' d='M480.0,60.0
+ h110.0 v80.0 h-47.0 v40.0 h-63.0 v-120.0 z
+ m10.0,10.0 v60.0 h90.0 v-60.0 h-90.0 z'
+ fill='#99f' stroke='#000'/>
+<text x='511.0' y='148.0' font-size='14.0' fill='#000' text-anchor='middle'>Debian</text>
+<text x='511.0' y='168.0' font-size='14.0' fill='#000' text-anchor='middle'>VM-repo</text>
+<path fill-opacity='0.2' stroke-opacity='0.3' d='M350.0,70.0
+ h90.0 l20.0,10.0 h-90.0 l-20.0,-10.0 z'
+ fill='#55e' stroke='#000'/>
+<path fill-opacity='0.2' stroke-opacity='0.3' d='M350.0,70.0
+ l20.0,10.0 v60.0 l-20.0,-10.0 v-60.0 z'
+ fill='#88f' stroke='#000'/>
+<path fill-opacity='0.2' stroke-opacity='0.3' d='M370.0,80.0
+ h90.0 v60.0 h-90.0 v-60.0 z'
+ fill='#99f' stroke='#000'/>
+<path d='M350.0,90.0
+ h60.0 l20.0,10.0 h-60.0 l-20.0,-10.0 z'
+ fill='#22b' stroke='#000'/>
+<path d='M410.0,90.0
+ v-20.0 l20.0,10.0 v20.0 l-20.0,-10.0 z'
+ fill='#55e' stroke='#000'/>
+<rect fill='#66f' stroke='#000' x='350.0' y='70.0' width='60.0' height='20.0'/>
+<text x='380.0' y='84.0' font-size='14.0' fill='#000' text-anchor='middle'>jenkins</text>
+<path d='M340.0,180.0
+ h56.0 l20.0,10.0 h-56.0 l-20.0,-10.0 z'
+ fill='#55e' stroke='#000'/>
+<path d='M396.0,180.0
+ v-40.0 l20.0,10.0 v40.0 l-20.0,-10.0 z'
+ fill='#88f' stroke='#000'/>
+<path d='M396.0,140.0
+ h54.0 l20.0,10.0 h-54.0 l-20.0,-10.0 z'
+ fill='#55e' stroke='#000'/>
+<path d='M450.0,140.0
+ v-80.0 l20.0,10.0 v80.0 l-20.0,-10.0 z'
+ fill='#88f' stroke='#000'/>
+<path fill-rule='evenodd' d='M340.0,60.0
+ h110.0 v80.0 h-54.0 v40.0 h-56.0 v-120.0 z
+ m10.0,10.0 v60.0 h90.0 v-60.0 h-90.0 z'
+ fill='#99f' stroke='#000'/>
+<text x='368.0' y='148.0' font-size='14.0' fill='#000' text-anchor='middle'>Debian</text>
+<text x='368.0' y='168.0' font-size='14.0' fill='#000' text-anchor='middle'>VM-ci</text>
+<path d='M300.0,260.0
+ h56.0 l20.0,10.0 h-56.0 l-20.0,-10.0 z'
+ fill='#55e' stroke='#000'/>
+<path d='M356.0,260.0
+ v-40.0 l20.0,10.0 v40.0 l-20.0,-10.0 z'
+ fill='#88f' stroke='#000'/>
+<path d='M356.0,220.0
+ h254.0 l20.0,10.0 h-254.0 l-20.0,-10.0 z'
+ fill='#55e' stroke='#000'/>
+<path d='M610.0,220.0
+ v-210.0 l20.0,10.0 v210.0 l-20.0,-10.0 z'
+ fill='#88f' stroke='#000'/>
+<path fill-rule='evenodd' d='M300.0,10.0
+ h310.0 v210.0 h-254.0 v40.0 h-56.0 v-250.0 z
+ m10.0,10.0 v190.0 h290.0 v-190.0 h-290.0 z'
+ fill='#99f' stroke='#000'/>
+<text x='328.0' y='228.0' font-size='14.0' fill='#000' text-anchor='middle'>Debian</text>
+<text x='328.0' y='248.0' font-size='14.0' fill='#000' text-anchor='middle'>Host 1</text>
+<path fill-opacity='0.2' stroke-opacity='0.3' d='M470.0,290.0
+ h110.0 l20.0,10.0 h-110.0 l-20.0,-10.0 z'
+ fill='#55e' stroke='#000'/>
+<path fill-opacity='0.2' stroke-opacity='0.3' d='M470.0,290.0
+ l20.0,10.0 v40.0 l-20.0,-10.0 v-40.0 z'
+ fill='#88f' stroke='#000'/>
+<path fill-opacity='0.2' stroke-opacity='0.3' d='M490.0,300.0
+ h110.0 v40.0 h-110.0 v-40.0 z'
+ fill='#99f' stroke='#000'/>
+<path d='M470.0,310.0
+ h80.0 l20.0,10.0 h-80.0 l-20.0,-10.0 z'
+ fill='#22b' stroke='#000'/>
+<path d='M550.0,310.0
+ v-20.0 l20.0,10.0 v20.0 l-20.0,-10.0 z'
+ fill='#55e' stroke='#000'/>
+<rect fill='#66f' stroke='#000' x='470.0' y='290.0' width='80.0' height='20.0'/>
+<text x='510.0' y='304.0' font-size='14.0' fill='#000' text-anchor='middle'>Terminal.app</text>
+<path d='M460.0,380.0
+ h77.0 l20.0,10.0 h-77.0 l-20.0,-10.0 z'
+ fill='#55e' stroke='#000'/>
+<path d='M537.0,380.0
+ v-40.0 l20.0,10.0 v40.0 l-20.0,-10.0 z'
+ fill='#88f' stroke='#000'/>
+<path d='M537.0,340.0
+ h53.0 l20.0,10.0 h-53.0 l-20.0,-10.0 z'
+ fill='#55e' stroke='#000'/>
+<path d='M590.0,340.0
+ v-60.0 l20.0,10.0 v60.0 l-20.0,-10.0 z'
+ fill='#88f' stroke='#000'/>
+<path fill-rule='evenodd' d='M460.0,280.0
+ h130.0 v60.0 h-53.0 v40.0 h-77.0 v-100.0 z
+ m10.0,10.0 v40.0 h110.0 v-40.0 h-110.0 z'
+ fill='#99f' stroke='#000'/>
+<text x='498.0' y='348.0' font-size='14.0' fill='#000' text-anchor='middle'>Mac OS X</text>
+<text x='498.0' y='368.0' font-size='14.0' fill='#000' text-anchor='middle'>my laptop</text>
+<rect x='70.0' y='125.0' rx='20.0' ry='20.0' width='130.0' height='80.0' stroke='none' stroke-width='5.0' fill='#668' opacity='0.3' filter='url(#filter-shadow1)'/>
+<rect x='50.0' y='115.0' rx='20.0' ry='20.0' width='130.0' height='80.0' stroke='#f60' stroke-width='5.0' fill='#ccd'/>
+<text x='115.0' y='183.0' font-size='14.0' fill='#000' text-anchor='middle'>jenkins-slave0</text>
+<rect x='70.0' y='125.0' width='90.0' height='18.0' stroke='none' fill='#999'/>
+<text x='115.0' y='138.0' font-size='14.0' fill='#000' text-anchor='middle'>ssh</text>
+<rect x='70.0' y='145.0' width='90.0' height='18.0' stroke='none' fill='#999'/>
+<text x='115.0' y='158.0' font-size='14.0' fill='#000' text-anchor='middle'>JDK + Maven</text>
+<marker id='arrow_BLACK' markerWidth='6' markerHeight='6' viewBox='-3 -3 6 6' refX='2' refY='0' markerUnits='strokeWidth' orient='auto'>
+<polygon points='-1,0 -3,3 3,0 -3,-3' fill='#000'/>
+</marker>
+<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M420.0,85.0
+ l67.0,0.0'
+ marker-end='url(#arrow_BLACK)'/>
+<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M390.0,95.0
+ q0.0,80.0 -167.5,80.0'
+ marker-end='url(#arrow_BLACK)'/>
+<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M390.0,95.0
+ q0.0,140.0 -205.5,140.0'
+ marker-end='url(#arrow_BLACK)'/>
+<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M390.0,95.0
+ q0.0,60.0 -205.5,60.0'
+ marker-end='url(#arrow_BLACK)'/>
+<path stroke='#000' opacity='0.8' stroke-width='3.0' fill='none' d='M108.0,251.5
+ l0.0,95.0'
+ marker-end='url(#arrow_BLACK)'/>
+</svg>
