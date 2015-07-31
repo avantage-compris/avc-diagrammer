@@ -15,6 +15,7 @@ import javax.annotation.Nullable;
 import net.avcompris.tools.diagrammer.SVGDiagrammer.Shape;
 
 import com.avcompris.lang.NotImplementedException;
+import com.google.common.base.Function;
 
 /**
  * Utility base class for diagrammers. This class draws high-level items
@@ -589,7 +590,20 @@ public abstract class AvcDiagrammer {
 					.fill("#000").textAnchor("middle").close();
 		}
 
-		return new NodeBox(box.x, box.y, box.width, box.height, box.fillColor);
+		return new NodeBox(box.x, box.y, box.width, box.height, box.fillColor) {
+
+			@Override
+			public double bullet_x(final double r) {
+
+				return x + 30;
+			}
+
+			@Override
+			public double bullet_y(final double r) {
+
+				return y + height + 14;
+			}
+		};
 	}
 
 	private static int getTextWidth(final String text) {
@@ -699,7 +713,48 @@ public abstract class AvcDiagrammer {
 		return previousValue;
 	}
 
-	protected abstract class Node {
+	protected abstract class Boxed {
+
+		public abstract double bullet_x(double percentage);
+
+		public abstract double bullet_y(double percentage);
+
+		public final double bullet_x() {
+
+			return bullet_x(0.5);
+		}
+
+		public final double bullet_y() {
+
+			return bullet_y(0.5);
+		}
+	}
+
+	protected class Arrow extends Boxed {
+
+		protected Arrow(
+				final Function<Double, Double> bullet_x,
+				final Function<Double, Double> bullet_y) {
+
+			this.bullet_x = bullet_x;
+			this.bullet_y = bullet_y;
+		}
+
+		private final Function<Double, Double> bullet_x;
+		private final Function<Double, Double> bullet_y;
+
+		public double bullet_x(final double r) {
+
+			return bullet_x.apply(r);
+		}
+
+		public double bullet_y(final double r) {
+
+			return bullet_y.apply(r);
+		}
+	}
+
+	protected abstract class Node extends Boxed {
 
 		public Node(
 				final double x,
@@ -781,6 +836,16 @@ public abstract class AvcDiagrammer {
 		public abstract double middle_y_left();
 
 		public abstract double middle_y_right();
+
+		public double bullet_x(final double r) {
+
+			return x + width * r;
+		}
+
+		public double bullet_y(final double r) {
+
+			return y + height * r;
+		}
 	}
 
 	private class NodePlain extends Node {
@@ -1126,51 +1191,51 @@ public abstract class AvcDiagrammer {
 		TOP, RIGHT, BOTTOM, LEFT;
 	}
 
-	protected final void arrow(final Node from, final Node to) {
+	protected final Arrow arrow(final Node from, final Node to) {
 
-		arrow(from, to, "solid");
+		return arrow(from, to, "solid");
 	}
 
-	protected final void arrow(final Node from, final Node to,
+	protected final Arrow arrow(final Node from, final Node to,
 			final String style) {
 
-		arrow(ArrowColor.BLACK, from, to, style);
+		return arrow(ArrowColor.BLACK, from, to, style);
 	}
 
-	protected final void arrow_yellow(final Node from, final Node to) {
+	protected final Arrow arrow_yellow(final Node from, final Node to) {
 
-		arrow_yellow(from, to, "solid");
+		return arrow_yellow(from, to, "solid");
 	}
 
-	protected final void arrow_yellow(final Node from, final Node to,
+	protected final Arrow arrow_yellow(final Node from, final Node to,
 			final String style) {
 
-		arrow(ArrowColor.YELLOW, from, to, style);
+		return arrow(ArrowColor.YELLOW, from, to, style);
 	}
 
-	protected final void arrow_red(final Node from, final Node to) {
+	protected final Arrow arrow_red(final Node from, final Node to) {
 
-		arrow_red(from, to, "solid");
+		return arrow_red(from, to, "solid");
 	}
 
-	protected final void arrow_red(final Node from, final Node to,
+	protected final Arrow arrow_red(final Node from, final Node to,
 			final String style) {
 
-		arrow(ArrowColor.RED, from, to, style);
+		return arrow(ArrowColor.RED, from, to, style);
 	}
 
-	protected final void arrow_gray(final Node from, final Node to) {
+	protected final Arrow arrow_gray(final Node from, final Node to) {
 
-		arrow_gray(from, to, "solid");
+		return arrow_gray(from, to, "solid");
 	}
 
-	protected final void arrow_gray(final Node from, final Node to,
+	protected final Arrow arrow_gray(final Node from, final Node to,
 			final String style) {
 
-		arrow(ArrowColor.GRAY, from, to, style);
+		return arrow(ArrowColor.GRAY, from, to, style);
 	}
 
-	private final void arrow(final ArrowColor color, final Node from,
+	private final Arrow arrow(final ArrowColor color, final Node from,
 			final Node to, final String style) {
 
 		ensureArrowDef(color);
@@ -1309,27 +1374,39 @@ public abstract class AvcDiagrammer {
 		shape.moveTo(x1, y1).l(x2 - x1, y2 - y1).leaveOpen()
 				.property("marker-end", "url(#arrow_" + color.name() + ")")
 				.close();
+
+		return new Arrow(new Function<Double, Double>() {
+			@Override
+			public Double apply(final Double r) {
+				return x1 * (1 - r) + x2 * r;
+			}
+		}, new Function<Double, Double>() {
+			@Override
+			public Double apply(final Double r) {
+				return y1 * (1 - r) + y2 * r;
+			}
+		});
 	}
 
-	protected final void arrow(final Node from, final NodeSide fromSide,
+	protected final Arrow arrow(final Node from, final NodeSide fromSide,
 			final Node to, final NodeSide toSide) {
 
-		arrow(ArrowColor.BLACK, from, fromSide, to, toSide);
+		return arrow(ArrowColor.BLACK, from, fromSide, to, toSide);
 	}
 
-	protected final void arrow_yellow(final Node from, final NodeSide fromSide,
+	protected final Arrow arrow_yellow(final Node from,
+			final NodeSide fromSide, final Node to, final NodeSide toSide) {
+
+		return arrow(ArrowColor.YELLOW, from, fromSide, to, toSide);
+	}
+
+	protected final Arrow arrow_gray(final Node from, final NodeSide fromSide,
 			final Node to, final NodeSide toSide) {
 
-		arrow(ArrowColor.YELLOW, from, fromSide, to, toSide);
+		return arrow(ArrowColor.GRAY, from, fromSide, to, toSide);
 	}
 
-	protected final void arrow_gray(final Node from, final NodeSide fromSide,
-			final Node to, final NodeSide toSide) {
-
-		arrow(ArrowColor.GRAY, from, fromSide, to, toSide);
-	}
-
-	private final void arrow(final ArrowColor color, final Node from,
+	private final Arrow arrow(final ArrowColor color, final Node from,
 			final NodeSide fromSide, final Node to, final NodeSide toSide) {
 
 		ensureArrowDef(color);
@@ -1464,6 +1541,20 @@ public abstract class AvcDiagrammer {
 				.q(qx - x1, qy - y1, x2 - x1, y2 - y1).leaveOpen()
 				.property("marker-end", "url(#arrow_" + color.name() + ")")
 				.close();
+
+		return new Arrow(new Function<Double, Double>() {
+			@Override
+			public Double apply(final Double r) {
+				return x1 * (1 - r) * (1 - r) + 2 * qx * r * (1 - r) + x2 * r
+						* r;
+			}
+		}, new Function<Double, Double>() {
+			@Override
+			public Double apply(final Double r) {
+				return y1 * (1 - r) * (1 - r) + 2 * qy * r * (1 - r) + y2 * r
+						* r;
+			}
+		});
 	}
 
 	protected final Node[] installed_packages(final String fillColor,
@@ -1597,5 +1688,24 @@ public abstract class AvcDiagrammer {
 						+ (y_ - 20) + "'/>");
 
 		return new NodeDirectory(x_, y_, fillColor);
+	}
+
+	protected final void bullet(final String label, final double percentage,
+			final Boxed boxed) {
+
+		final double x = boxed.bullet_x(percentage);
+		final double y = boxed.bullet_y(percentage);
+
+		diagrammer().circle().cx(x).cy(y).r(12).stroke("#900").strokeWidth(3)
+				.fill("#ffc") // .opacity(0.8)
+				.close();
+
+		diagrammer().text(label).x(x + 0.5).y(y + 4).textAnchor("middle")
+				.fill("#900").fontSize(14).fontWeight("bold").close();
+	}
+
+	protected final void bullet(final String label, final Boxed boxed) {
+
+		bullet(label, 0.5, boxed);
 	}
 }

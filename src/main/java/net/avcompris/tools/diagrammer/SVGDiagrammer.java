@@ -104,6 +104,11 @@ public abstract class SVGDiagrammer {
 		};
 	}
 
+	protected Shape circle() {
+
+		return new Shape("circle");
+	}
+
 	private final Stack<Shape> shapes = new Stack<Shape>();
 
 	protected class Shape {
@@ -234,6 +239,13 @@ public abstract class SVGDiagrammer {
 		public Shape cy(final double cy) {
 
 			print(" cy='" + cy + "'");
+
+			return this;
+		}
+
+		public Shape r(final double r) {
+
+			print(" r='" + r + "'");
 
 			return this;
 		}

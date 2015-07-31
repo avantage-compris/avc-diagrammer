@@ -35,7 +35,8 @@ public class DockerJenkinsSlave0_0 extends AvcDiagrammer {
 	protected Node jenkins_slave0;
 	protected Node shared_folder;
 	protected Node terminal;
-
+	protected Node docker_package;
+	
 	@Override
 	protected void body() {
 
@@ -52,7 +53,7 @@ public class DockerJenkinsSlave0_0 extends AvcDiagrammer {
 
 		inside_of_box(_ + 10, _ + 40, 180, 220, "#6f6");
 
-		installed_packages("#3c3", "docker");
+		docker_package = installed_packages("#3c3", "docker")[0];
 
 		docker_registry = docker_image(_ + 10, _ + 150, 130, 30,
 				"docker-registry");
