@@ -603,6 +603,19 @@ public abstract class AvcDiagrammer {
 
 				return y + height + 14;
 			}
+
+			@Override
+			public double bottom(final double x) {
+
+				if (x < left() + 60) {
+
+					return bottom() + 42;
+
+				} else {
+
+					return bottom();
+				}
+			}
 		};
 	}
 
@@ -824,6 +837,11 @@ public abstract class AvcDiagrammer {
 		public abstract double right();
 
 		public abstract double bottom();
+
+		public double bottom(final double x) {
+
+			return bottom();
+		}
 
 		public abstract double left();
 
@@ -1300,7 +1318,8 @@ public abstract class AvcDiagrammer {
 		} else if (from.top() > to.bottom()) {
 
 			y1 = from.top() - 0.5;
-			y2 = to.bottom();
+
+			double y2tmp = to.bottom();
 
 			if (from.left() <= to.left() && from.right() >= to.right()) {
 
@@ -1310,10 +1329,14 @@ public abstract class AvcDiagrammer {
 
 				x1 = from.middle_x_top();
 
+				y2tmp = to.bottom(x1);
+
 			} else if (from.middle_x_top() >= to.left()
 					&& from.middle_x_top() <= to.right()) {
 
 				x1 = from.middle_x_top();
+
+				y2tmp = to.bottom(x1);
 
 			} else {
 
@@ -1327,6 +1350,7 @@ public abstract class AvcDiagrammer {
 			}
 
 			x2 = x1;
+			y2 = y2tmp;
 
 		} else if (from.bottom() < to.top()) {
 
@@ -1522,6 +1546,26 @@ public abstract class AvcDiagrammer {
 			if ((x1 - x2) > 3 * (y1 - y2)) {
 
 				qx = x1 - 3 * (y1 - y2);
+
+			} else {
+
+				qx = x2;
+
+			}
+
+			qy = y1;
+
+		} else if (fromSide == NodeSide.RIGHT && toSide == NodeSide.TOP) {
+
+			x1 = from.right();
+			y1 = from.middle_y_right();
+
+			x2 = to.middle_x_top();
+			y2 = to.top();
+
+			if ((x2 - x1) > 3 * (y2 - y1)) {
+
+				qx = x1 + 3 * (y2 - y1);
 
 			} else {
 
