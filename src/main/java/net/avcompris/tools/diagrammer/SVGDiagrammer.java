@@ -75,6 +75,11 @@ public abstract class SVGDiagrammer {
 		return new Shape("rect");
 	}
 
+	protected Shape line() {
+
+		return new Shape("line");
+	}
+
 	protected Shape ellipse() {
 
 		return new Shape("ellipse");
@@ -225,6 +230,34 @@ public abstract class SVGDiagrammer {
 		public Shape y(final double y) {
 
 			print(" y='" + y + "'");
+
+			return this;
+		}
+
+		public Shape x1(final double x1) {
+
+			print(" x1='" + x1 + "'");
+
+			return this;
+		}
+
+		public Shape y1(final double y1) {
+
+			print(" y1='" + y1 + "'");
+
+			return this;
+		}
+
+		public Shape x2(final double x2) {
+
+			print(" x2='" + x2 + "'");
+
+			return this;
+		}
+
+		public Shape y2(final double y2) {
+
+			print(" y2='" + y2 + "'");
 
 			return this;
 		}
@@ -418,7 +451,7 @@ public abstract class SVGDiagrammer {
 
 	private final List<File> outputFiles = new ArrayList<File>();
 
-	protected final SVGDiagrammer addOutputFile(final File outputFile) throws IOException {
+	public final SVGDiagrammer addOutputFile(final File outputFile) throws IOException {
 
 		checkNotNull(outputFile, "outputFile");
 
