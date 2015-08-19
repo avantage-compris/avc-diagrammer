@@ -8,7 +8,7 @@
 	<parent>
 		<groupId>net.avcompris.commons</groupId>
 		<artifactId>avc-commons-parent</artifactId>
-		<version>0.4.5-SNAPSHOT</version>
+		<version>0.4.7</version>
 		<relativePath/>
 	</parent>
 
@@ -16,12 +16,12 @@
 		<dependency>
 			<groupId>net.avcompris.commons</groupId>
 			<artifactId>avc-commons-lang</artifactId>
-			<version>0.4.5-SNAPSHOT</version>
+			<version>0.4.7</version>
 		</dependency>
 		<dependency>
 			<groupId>net.avcompris.commons</groupId>
 			<artifactId>avc-commons-testutil</artifactId>
-			<version>0.4.5-SNAPSHOT</version>
+			<version>0.4.7</version>
 			<scope>test</scope>
 			<exclusions>
 				<exclusion>
@@ -129,10 +129,9 @@
 	</repositories>
 
 	<scm>
-		<connection>scm:hg:https://code.google.com/p/avc-diagrammer/</connection>
-		<developerConnection>scm:hg:https://code.google.com/p/avc-diagrammer/</developerConnection>
-		<url>http://code.google.com/p/avc-diagrammer/source/browse/</url>
-		<tag>HEAD</tag>
+		<connection>scm:git:https://github.com/avantage-compris/avc-diagrammer.git</connection>
+		<developerConnection>scm:git:git@github.com:avantage-compris/avc-diagrammer.git</developerConnection>
+		<url>https://github.com/avantage-compris/avc-diagrammer</url>
 	</scm>
 
 	<distributionManagement>
